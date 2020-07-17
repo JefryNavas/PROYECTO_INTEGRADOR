@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<head>
+
+<title>Pagina Principal</title>
+<link href="estilos/styles.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+	<!-- begin #container -->
+	<div id="container">
+		<!-- begin #header -->
+		<div id="header">
+			<div class="mainLogo">
+				<div class="logo">PROYECTO INTEGRADOR</div>
+				<div class="logo">Estadística Camas Hospitalarias 2018</div>
+				<div class="author">Creado por Navas Jefry, Estacio Joel ,
+					Yunga Joel</div>
+			</div>
+			<div class="clearfloat"></div>
+			<div class="headerPic">
+				<div id="navcontainer">
+					<ul id="navlist">
+						
+						<li><h:link value="Iniciar Sesión" outcome="login" /></li>
+                                                <li><h:link value="Información" outcome="info" /></li>
+                                                <li><h:link value="Licencia" outcome="licencia" /></li>
+						<li><h:link value="Contactos" outcome="informacion" /></li>
+                                   
+						<li><a
+							href="https://github.com/JoelYunga/PROYECTO_INTEGRADOR-56">Repositorio</a></li>
+					</ul>
+				</div>
+				<div class="headerImg">
+					<img src="imagenes/2.jpg" alt="" />
+				</div>
+			</div>
+		</div>
+		<!-- end #header -->
+		<div class="mainContent">
+			<div class="houseBlock">
+				<div class="blockImg">
+					<img src="imagenes/github.PNG" alt="" />
+				</div>
+				<p>
+					<b>Como Funciona</b><br /> <br /> Este sistema se desarolla en un
+					enfoque de facil manejo, este sistema mostrara reportes
+					estadisticos desarrollados en pentaho en base a consultas sql para
+					ser mostrados facilmente al usuario en una pagina web sin la
+					necesidad de otro software.
+				</p>
+			</div>
+			<div class="blockSeparator"></div>
+			<div class="houseBlock">
+				<div class="blockImg">
+					<img src="imagenes/eclipse1.PNG" alt="" />
+				</div>
+				<p>
+					<b>Sotware Utilizado</b><br /> <br />
+					<ul>
+						<li>Eclipse</li>
+						<li>PostgresQL</li>
+						<li>Pentaho data integration</li>
+						<li>Pentaho report designer</li>
+						<li>Java</li>
+						<li>Repositorio en GitHub</li>
+					</ul>
+
+				</p>
+			</div>
+			<div class="blockSeparator"></div>
+			<div class="houseBlock">
+				<div class="blockImg">
+					<img src="imagenes/4.jpg" alt="" />
+				</div>
+				<p>
+					<b>FUENTES</b><br /> <br /> Los datos en los que se manejan
+					nuestras estadisticas son tomados del banco de datos libres que se
+					encuentran en la plataforma del INEC
+				</p>
+			</div>
+		</div>
+		<div class="clearfloat"></div>
+	</div>
+</body>
+</html>

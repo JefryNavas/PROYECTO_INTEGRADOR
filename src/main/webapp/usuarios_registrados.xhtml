@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Usuarios</title>
+</h:head>
+
+<h:form id="form">
+	<p:panel id="panel" header="Usuarios Registrados">
+		<p:dataTable var="list" value="#{UsuarioBean.listaUsuario()}">
+			<p:column headerText="ID">
+				<h:outputText value="#{list.id}" />
+			</p:column>
+			<p:column headerText="Perfil">
+				<h:outputText value="#{list.perfil}" />
+			</p:column>
+			<p:column headerText="Nombres">
+				<h:outputText value="#{list.nombres}" />
+			</p:column>
+
+			<p:column headerText="Apellidos">
+				<h:outputText value="#{list.apellidos}" />
+			</p:column>
+
+			<p:column headerText="Correo">
+				<h:outputText value="#{list.nombre_usuario}" />
+			</p:column>
+		</p:dataTable>
+		<p:commandButton value="Regresar" />
+	</p:panel>
+
+</h:form>
+
+</html>

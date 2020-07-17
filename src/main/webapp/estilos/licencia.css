@@ -1,0 +1,153 @@
+@charset "ISO-8859-1";
+
+* {
+	margin:0;
+	padding:0;
+}
+body  {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	background: #ede3d7 url(images/bodyBackground.jpg) repeat-x left top;
+	color: #194B7C;
+}
+a {
+	color:#194B7C;
+	font-size:12px;
+	text-decoration:underline;
+}
+a:hover {
+	color:194B7C;
+	font-size:12px;
+	text-decoration:none;
+}
+.logo {
+	color:#194B7C;
+	font-size:48px;
+	padding:0 0 0 20px;
+}
+.author {
+	padding:0 0 20px 20px;
+	color:#9e9a9a;
+}
+h1 {
+	color:#194B7C;
+	font-size:18px;
+	font-weight:bold;
+	padding:0 0 10px 0;
+}
+.mainLogo {	
+	float:left;
+}
+.icons {
+	float:right;
+	padding:20px 20px 0 0;
+}
+.icons img {
+	border:0;
+}
+#container { 
+	width: 800px;  
+	margin: 0 auto;
+} 
+.mainContent {
+	padding:20px 0;
+}
+.copyright {
+	background:#c8b59b;
+	padding:30px;
+}
+.blockSeparator {
+	border-left:1px solid #c8b59b;
+	float:left;
+	height:275px;
+	margin:0 20px;
+}
+.seeMore {
+	text-align:right;
+}
+.seeMore a {
+	text-align:right;
+	font-weight:bold;
+}
+.houseBlock {
+	width:225px;
+	float:left;
+	margin:0 6px;
+}
+.houseBlock .blockImg {
+	width:100px;
+	height:px;
+	text-align:center;
+	padding:10px;
+}
+.houseBlock p {
+	padding:10px 0;
+	text-align:left;
+	color:#271e13;
+}
+.sidebarLeft {
+	width:555px;
+	float:left
+}
+.sidebarRight {
+	margin-left:555px;
+	background:#271e13;
+	padding:20px;
+}
+.headerPic {
+	background:#194B7C;
+	width:150px;
+	height:120px;
+	padding:35px 0 0 525px;
+}
+.headerImg {
+	margin-left:200px;
+	padding-top:1px;
+}
+#footer {
+	color:#9e9a9a;
+	text-align:center;
+	height:75px;
+	background:url(images/footerBackground.jpg) repeat-x left top;
+}
+#footer p {
+	padding:20px 0 0 0;
+}
+.clearfloat { /* this class should be placed on a div or break element and should be the final element before the close of a container that should fully contain a float */
+	clear:both;
+    height:0;
+    font-size: 1px;
+    line-height: 10px;
+}
+/*MAIN MENU*/
+#navcontainer { 
+	background: url(images/menuBackground.png) repeat-y left top;
+	padding:35px 0 0 525px;
+	float:left; 
+}
+#navcontainer ul {
+	margin-left: 0;
+	padding-left: 0;
+	list-style-type: none;
+	font-family: Arial, Helvetica, sans-serif;
+}
+#navcontainer a {
+	font-size:24px;
+	display: block;
+	padding: 30px;
+}
+#navcontainer a:link, #navlist a:visited {
+	color: #ffffff;
+	text-decoration: none;
+	padding-left:100px;
+}
+#navcontainer a:hover {
+	color: #000000;
+	background:url(images/p.png) no-repeat left 12px;
+	padding-left:35px;
+}
+#navcontainer #active a {
+	color: #000000;
+	background:url(images/p.png) no-repeat left 12px;
+	padding-left:35px;
+}

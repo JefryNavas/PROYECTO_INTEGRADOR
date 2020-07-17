@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<link rel="stylesheet" href="estilos/iniciar_sesion.css" />
+	<title>Iniciar Sesión</title>
+</h:head>
+<h:body style="background-color: #D5F25C;">
+	<p:growl id="messages">
+		<p:autoUpdate />
+	</p:growl>
+	<div>
+		<h1 align="center">INICIAR SESION</h1>
+	</div>
+
+
+	<div>
+		<img class="img" src="imagenes/inec.jpg" />
+	</div>
+	<div class="linea">
+		<h1>_</h1>
+	</div>
+	<div class="cuadro">
+		<h:form>
+			<h:panelGrid columns="2" style="display:block; text-align:center">
+                            
+                            <p:outputLabel  for="usuario"
+					value="Usuario (correo)" />
+				<br></br>
+                                
+                                
+				<p:inputText required="true" id="usuario" value=""
+					placeholder="Ingrese el correo">
+				</p:inputText>
+				<br></br>
+                                <br></br>
+                                <br></br>
+
+				<p:outputLabel for="clave" value="Contraseña:" />
+				<br></br>
+                                <br></br>
+                                
+				<p:inputText required="true" id="clave" type="password"
+					value="" placeholder="Ingrese la contraseña" />
+				<br></br>
+
+				<p:separator />
+				<br></br>
+				<p:commandButton icon="ui-icon-key" value="Iniciar Sesión" />
+			</h:panelGrid>
+		</h:form>
+
+		<h:link value="Registrar" outcome="registrarU" />
+		<br />
+		<h:link value="Olvidó Contraseña" outcome="Oclave" />
+		<br />
+		<h:link value="Regresar" outcome="regresar_login" />
+	</div>
+
+	<div class="linea2">
+		<h1>_</h1>
+	</div>
+	<br />
+	<div class="texto">
+		<h5 align="center">
+
+			Universidad Politecnica Salesiana <br /> Ingeniería en Ciencias de
+			la Computación <br /> Creadores: Joel Yunga, Estacio Jefferson,
+			Jefry Navas
+
+		</h5>
+	</div>
+</h:body>
+</html>
