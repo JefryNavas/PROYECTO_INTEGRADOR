@@ -16,19 +16,23 @@
 			<p:column headerText="ID">
 				<h:outputText value="#{list.id}" />
 			</p:column>
-			<p:column headerText="Perfil">
-				<h:outputText value="#{list.perfil}" />
+			<p:column headerText="Fecha">
+				<h:outputText value="#{list.fecha}" />
 			</p:column>
-			<p:column headerText="Nombres">
-				<h:outputText value="#{list.nombres}" />
-			</p:column>
-
-			<p:column headerText="Apellidos">
-				<h:outputText value="#{list.apellidos}" />
+			<p:column headerText="Observación">
+				<h:outputText value="#{list.observacion}" />
 			</p:column>
 
-			<p:column headerText="Correo">
-				<h:outputText value="#{list.nombre_usuario}" />
+			<p:column headerText="Nombre de Equipo">
+				<h:outputText value="#{list.n_equipo}" />
+			</p:column>
+
+			<p:column headerText="Usuario">
+				<h:outputText value="#{list.usu}" />
+			</p:column>
+                    
+                         <p:column headerText="Tabla">
+				<h:outputText value="#{list.tabla}" />
 			</p:column>
 		</p:dataTable>
 		<p:commandButton value="Regresar"  action="menu_administrador?faces-redirect=true"/>

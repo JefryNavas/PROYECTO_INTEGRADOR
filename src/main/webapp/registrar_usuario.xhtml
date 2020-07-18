@@ -40,14 +40,14 @@
 				<br></br>
 				<p:outputLabel for="correo" value="Correo:" />
 				<br></br>
-                                <p:inputText id="correo" required="true" value="#{usuarioController.usuario.nombre_usuario}"/>
+                                <p:inputText id="correo" required="true" value="#{usuarioController.usuario.usuario}"/>
 				<br></br>
 				<p:outputLabel for="contraseña" value="Contraseña:" />
 				<br></br>
                                 <p:inputText id="contraseña" type="password" required="true" value ="#{usuarioController.usuario.contraseña}"/>
 				<br></br>
 
-                                <p:commandButton value="Registrar" actionListener="#{usuarioController.registrar()}" icon="ui-icon-disk" update="mensaje" ajax="false" />
+                                <p:commandButton value="Registrar" actionListener="#{usuarioController.registrar()}" icon="ui-icon-disk" update="mensaje" ajax="false" action="iniciar_sesion?faces-redirect=true"/>
 			</h:panelGrid>
 		</h:form>
 

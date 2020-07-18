@@ -30,7 +30,7 @@ public class UsuarioController implements Serializable{
     
     @PostConstruct
     public void init(){
-        usuario = new Usuario();
+        usuario = new Usuario(1);
     }
     
     public void registrar(){
@@ -43,4 +43,29 @@ public class UsuarioController implements Serializable{
         }
         
     }
+    
+     public String iniciarSesion(){
+        Usuario us;
+        String redireccion = null;
+        try{
+           us = usuarioEJB.iniciarSesion(usuario);
+           if(us!=null && us.getPerfil()==1){
+               FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", us);
+               redireccion = "principal?faces-redirect=true";
+           } else if(us!=null && us.getPerfil()==2){
+               redireccion = "menu_administrador?faces-redirect=true";
+                 } else {
+           FacesContext.getCurrentInstance().addMessage(null,new FacesMessage(FacesMessage.SEVERITY_WARN,"","Usuario Incorrecto"));
+           }
+        }catch(Exception e){
+             FacesContext.getCurrentInstance().addMessage(null,new FacesMessage(FacesMessage.SEVERITY_FATAL,"","ERROR"));
+        }
+        return redireccion;
+    }
+     
+     public String mostrarUsuarioLogeado(){
+    Usuario us = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
+           return us.getUsuario();
+}
+
 }

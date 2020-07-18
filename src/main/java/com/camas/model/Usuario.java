@@ -25,7 +25,7 @@ public class Usuario implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_usuario;
     @Column(name = "id_perfil")
-    private int perfil=1;
+    private int perfil;
     @Column(name = "nombres")
     private String nombres;
     @Column(name = "apellidos")
@@ -35,10 +35,19 @@ public class Usuario implements Serializable{
     @Column(name = "contraseña")
     private String contraseña;
 
+    public Usuario(int perfil) {
+        this.perfil = perfil;
+    }
+    
+    public Usuario() {
+      
+    }
+
     public int getPerfil() {
         return perfil;
     }
-
+    
+    
     public void setPerfil(int perfil) {
         this.perfil = perfil;
     }
@@ -90,13 +99,6 @@ public class Usuario implements Serializable{
 		this.apellidos = apellidos;
 	}
 
-	public String getNombre_usuario() {
-        return usuario;
-    }
-
-    public void setNombre_usuario(String nombre_usuario) {
-        this.usuario = nombre_usuario;
-    }
 
     @Override
     public String toString() {

@@ -12,7 +12,42 @@
 			<to-view-id>/informacion.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-    
+        
+        <navigation-rule>
+		<display-name>menu_administrador.xhtml</display-name>
+		<from-view-id>/menu_administrador.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>verA</from-outcome>
+			<to-view-id>/Auditoria.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+        
+        <navigation-rule>
+		<display-name>crearUsuario.xhtml</display-name>
+		<from-view-id>/crearUsuario.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>RUser</from-outcome>
+			<to-view-id>/menu_administrador.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+        
+        <navigation-rule>
+		<display-name>menu_administrador.xhtml</display-name>
+		<from-view-id>/menu_administrador.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>crearu</from-outcome>
+			<to-view-id>/crearUsuario.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+        
+        <navigation-rule>
+		<display-name>permisos.xhtml</display-name>
+		<from-view-id>/permisos.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>per</from-outcome>
+			<to-view-id>/iniciar_sesion.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
     <navigation-rule>
 		<display-name>informacion.xhtml</display-name>
 		<from-view-id>/informacion.xhtml</from-view-id>
@@ -85,22 +120,8 @@
 			<to-view-id>/index.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-	<navigation-rule>
-		<display-name>iniciar_sesion.xhtml</display-name>
-		<from-view-id>/iniciar_sesion.xhtml</from-view-id>
-		<navigation-case>
-			<from-outcome>menuU</from-outcome>
-			<to-view-id>/menu_usuarios.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
-	<navigation-rule>
-		<display-name>iniciar_sesion.xhtml</display-name>
-		<from-view-id>/iniciar_sesion.xhtml</from-view-id>
-		<navigation-case>
-			<from-outcome>menuA</from-outcome>
-			<to-view-id>/menu_administrador.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
+	
+	
 	<navigation-rule>
 		<display-name>menu_administrador.xhtml</display-name>
 		<from-view-id>/menu_administrador.xhtml</from-view-id>
@@ -149,32 +170,10 @@
 			<to-view-id>/iniciar_sesion.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-	<navigation-rule>
-		<display-name>menu_usuarios.xhtml</display-name>
-		<from-view-id>/menu_usuarios.xhtml</from-view-id>
-		<navigation-case>
-			<from-outcome>generar_reportes</from-outcome>
-			<to-view-id>/generar_reportes.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
 	
-	<navigation-rule>
-		<display-name>generar_reportes.xhtml</display-name>
-		<from-view-id>/generar_reportes.xhtml</from-view-id>
-		<navigation-case>
-			<from-outcome>r_generar_reportes</from-outcome>
-			<to-view-id>/menu_usuarios.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
 	
-	<navigation-rule>
-		<display-name>menu_usuarios.xhtml</display-name>
-		<from-view-id>/menu_usuarios.xhtml</from-view-id>
-		<navigation-case>
-			<from-outcome>salir_usuario</from-outcome>
-			<to-view-id>/index.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
+	
+	
 	<navigation-rule>
 		<display-name>menu_administrador.xhtml</display-name>
 		<from-view-id>/menu_administrador.xhtml</from-view-id>

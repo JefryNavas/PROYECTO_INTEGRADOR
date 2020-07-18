@@ -9,8 +9,8 @@
 	<title>Iniciar Sesión</title>
 </h:head>
 <h:body style="background-color: #D5F25C;">
-	<p:growl id="messages">
-		<p:autoUpdate />
+        <p:growl id="messages" showDetail="true">
+		<p:autoUpdate />   
 	</p:growl>
 	<div>
 		<h1 align="center">INICIAR SESION</h1>
@@ -25,31 +25,31 @@
 	</div>
 	<div class="cuadro">
 		<h:form>
-			<h:panelGrid columns="2" style="display:block; text-align:center">
+			<h:panelGrid columns="2" style="text-align:center">
                             
                             <p:outputLabel  for="usuario"
 					value="Usuario (correo)" />
 				<br></br>
                                 
                                 
-				<p:inputText required="true" id="usuario" value=""
+                                <p:inputText required="true" id="usuario" value="#{usuarioController.usuario.usuario}"
 					placeholder="Ingrese el correo">
 				</p:inputText>
 				<br></br>
                                 <br></br>
                                 <br></br>
 
-				<p:outputLabel for="clave" value="Contraseña:" />
+				<p:outputLabel for="contraseña" value="Contraseña:" />
 				<br></br>
                                 <br></br>
                                 
-				<p:inputText required="true" id="clave" type="password"
-					value="" placeholder="Ingrese la contraseña" />
+				<p:inputText required="true" id="contraseña" type="password"
+                                             value="#{usuarioController.usuario.contraseña}" placeholder="Ingrese la contraseña" />
 				<br></br>
 
 				<p:separator />
 				<br></br>
-				<p:commandButton icon="ui-icon-key" value="Iniciar Sesión" />
+                                <p:commandButton icon="ui-icon-key" value="Iniciar Sesión" action="#{usuarioController.iniciarSesion()}"/>
 			</h:panelGrid>
 		</h:form>
 
