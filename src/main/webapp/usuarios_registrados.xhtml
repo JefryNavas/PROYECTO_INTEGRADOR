@@ -4,7 +4,7 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+     >
 
     <h:body>
         <ui:composition template="./plantilla.xhtml">
@@ -13,7 +13,7 @@
              <p:growl id="mensaje" showSummary="false" showDetail="true">
                   <p:autoUpdate />
              </p:growl>
-	<p:panel header="Usuarios Registrados">
+	<p:panel  id="panel" header="Usuarios Registrados">
             <p:dataTable id="tabla" var="list" value="#{usuarioController.usuariolist}">
 			<p:column headerText="ID">
                             <h:outputText value="#{list.id_usuario}" />
@@ -41,7 +41,7 @@
                         </p:column>
                         <p:column headerText="Eliminar">
                                 <center>
-                                <p:commandLink value="Eliminar" update="tabla" actionListener="#{usuarioController.eliminar(list)}" />
+                                <p:commandLink value="Eliminar"  actionListener="#{usuarioController.eliminar(list)}" onsuccess="location.reload();"  />
                                 </center>
                             </p:column>
 		</p:dataTable>
@@ -62,7 +62,7 @@
                             <p:inputText id="usuario" required="true" value="#{usuarioController.usuario.usuario}"/>
                             <p:outputLabel for="contraseña" value="Contraseña:"/>
                             <p:inputText id="contraseña" required="true" value="#{usuarioController.usuario.contraseña}"/>
-                            <p:commandButton value="Guardar" actionListener="#{usuarioController.modificar()}" update=":frm" oncomplete="PF('wdialogo').hide();" />
+                            <p:commandButton value="Guardar" actionListener="#{usuarioController.modificar()}" update=":frm" oncomplete="PF('wdialogo').hide();" onsuccess="location.reload();" />
                             <p:commandButton immediate="true"  value="Cancelar" icon="ui-icon-close" onclick="PF('wdialogo').hide();"/>
                             
                              </h:panelGrid>
