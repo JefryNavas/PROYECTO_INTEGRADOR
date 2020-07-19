@@ -3,24 +3,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-    <body>
-
+    <h:body>
         <ui:composition template="./plantilla.xhtml">
-
-            <ui:define name="content">
-                <h:form id="form">
-	<p:panel id="panel" header="Usuarios Registrados">
-		<p:dataTable var="list" value="#{UsuarioBean.listaUsuario()}">
+        <ui:define name="content">
+            <h:form id="frm">
+             <p:growl id="mensaje" showSummary="false" showDetail="true">
+                  <p:autoUpdate />
+             </p:growl>
+	<p:panel header="Usuarios Registrados">
+            <p:dataTable id="tabla" var="list" value="#{usuarioController.usuariolist}">
 			<p:column headerText="ID">
-				<h:outputText value="#{list.id}" />
+                            <h:outputText value="#{list.id_usuario}" />
 			</p:column>
 			<p:column headerText="Perfil">
-				<h:outputText value="#{list.perfil}" />
+                            <h:outputText value="#{list.perfil}" />
 			</p:column>
 			<p:column headerText="Nombres">
-				<h:outputText value="#{list.nombres}" />
+                            <h:outputText value="#{list.nombres}" />
 			</p:column>
 
 			<p:column headerText="Apellidos">
@@ -28,17 +30,47 @@
 			</p:column>
 
 			<p:column headerText="Correo">
-				<h:outputText value="#{list.nombre_usuario}" />
+                            <h:outputText value="#{list.usuario}" />
 			</p:column>
+                        
+                        
+                        <p:column headerText="Modificar">
+                            <center>
+                                <p:commandLink value="Modificar" actionListener="#{usuarioController.leer(list)}" oncomplete="PF('wdialogo').show();" update="dialogo"/>
+			</center>
+                        </p:column>
+                        <p:column headerText="Eliminar">
+                                <center>
+                                <p:commandLink value="Eliminar" update="tabla" actionListener="#{usuarioController.eliminar(list)}" />
+                                </center>
+                            </p:column>
 		</p:dataTable>
 		<p:commandButton value="Regresar"  action="menu_administrador?faces-redirect=true"/>
 	</p:panel>
 
 </h:form>
-
+                    
+                <p:dialog id="dialogo" widgetVar="wdialogo" header="Modificar" modal="true" resizable="false" closeOnEscape="true" draggable="false">
+                    <h:form>
+                       
+                        <h:panelGrid columns="2">
+                            <p:outputLabel for="nombres" value="Nombres:"/>
+                            <p:inputText id="nombres" required="true" value="#{usuarioController.usuario.nombres}"/>
+                            <p:outputLabel for="apellidos" value="Apellidos:"/>
+                            <p:inputText id="apellidos" required="true" value="#{usuarioController.usuario.apellidos}"/>
+                            <p:outputLabel for="usuario" value="Correo:"/>
+                            <p:inputText id="usuario" required="true" value="#{usuarioController.usuario.usuario}"/>
+                            <p:outputLabel for="contraseña" value="Contraseña:"/>
+                            <p:inputText id="contraseña" required="true" value="#{usuarioController.usuario.contraseña}"/>
+                            <p:commandButton value="Guardar" actionListener="#{usuarioController.modificar()}" update=":frm" oncomplete="PF('wdialogo').hide();" />
+                            <p:commandButton immediate="true"  value="Cancelar" icon="ui-icon-close" onclick="PF('wdialogo').hide();"/>
+                            
+                             </h:panelGrid>
+                    </h:form>
+                </p:dialog>
             </ui:define>
 
         </ui:composition>
 
-    </body>
+    </h:body>
 </html>

@@ -45,13 +45,15 @@
 				<p:outputLabel for="contraseña" value="Contraseña:" />
 				<br></br>
                                 <p:inputText id="contraseña" type="password" required="true" value ="#{usuarioController.usuario.contraseña}"/>
-				<br></br>
-
-                                <p:commandButton value="Registrar" actionListener="#{usuarioController.registrar()}" icon="ui-icon-disk" update="mensaje" ajax="false" action="iniciar_sesion?faces-redirect=true"/>
-			</h:panelGrid>
+                                <br></br>
+                                <p:commandButton value="Registrar" actionListener="#{usuarioController.registrar()}" icon="ui-icon-disk" update="mensaje" ajax="false"/>
+                                <br/>
+                               
+                        </h:panelGrid>
 		</h:form>
 
-		<h:link value="Regresar" outcome="re_usuario" />
+		
+                                <h:link value="Regresar" outcome="re_usuario" />
 	</div>
 
 	<div class="linea2">

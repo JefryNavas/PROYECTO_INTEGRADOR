@@ -3,8 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -19,32 +19,23 @@
 
         <div id="top">
             <ui:insert name="top">
-                <h:form>
+                 <h:form>
                     <div align="right">
-                        Bienvenido Usuario: #{usuarioController.mostrarUsuarioLogeado()}
-                        <p:commandButton actionListener="#{plantillaController.cerrarSesion()}" value="Cerrar Sesión" action="/iniciar_sesion?faces-redirect=true"/>
-                    </div>    
-                                </h:form>
-                 </ui:insert>
+                         Bienvenido Usuario: #{usuarioController.mostrarUsuarioLogeado()}
+                   
+                         <p:commandButton actionListener="#{plantillaController.cerrarSesion()}" value="Cerrar Sesión" action="/iniciar_sesion?faces-redirect=true"/>
+                
+                    </div>
+               </h:form>
+            </ui:insert>
         </div>
 
         <div id="content" class="center_content">
-            <ui:insert name="content">
-                
-                
-            </ui:insert>
+            <ui:insert name="content">Content</ui:insert>
         </div>
 
-        <div >
-            <ui:insert name="bottom">
-               <h5 align="center">
-
-			Universidad Politecnica Salesiana <br /> Ingeniería en Ciencias de
-			la Computación <br /> Creadores: Joel Yunga, Estacio Jefferson,
-			Jefry Navas
-
-		</h5>
-            </ui:insert>
+        <div id="bottom">
+            <ui:insert name="bottom">Bottom</ui:insert>
         </div>
 
     </h:body>

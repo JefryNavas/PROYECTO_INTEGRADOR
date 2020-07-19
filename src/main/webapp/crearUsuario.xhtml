@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <body>
 
@@ -12,7 +13,9 @@
             <ui:define name="content">
                 <p:panel id="panel" header="Crear Usuario">
                     <h:form>
-                  
+                  <p:growl id="mensaje" showSummary="false" showDetail="true">
+		<p:autoUpdate />
+	</p:growl>
                     
 			<h:panelGrid columns="2">
 				<p:outputLabel for="nombres" value="Nombres:" />
@@ -23,8 +26,15 @@
 				<br></br>
                                 <p:inputText id="apellidos" required="true" value="#{usuarioController.usuario.apellidos}"/>
 				<br></br>
-				<p:outputLabel for="correo" value="Correo:" />
+                                <p:outputLabel for="" value="Perfil:" />
 				<br></br>
+                                <p:selectOneMenu  value="#{usuarioController.perfil}" >
+                                    <f:selectItem itemLabel="Usuario" itemValue="1"/>
+                                    <f:selectItem itemLabel="Administrador" itemValue="2"/>
+                                </p:selectOneMenu>
+                                <br></br>
+                                <p:outputLabel for="correo" value="Correo:" />
+                                <br></br>
                                 <p:inputText id="correo" required="true" value="#{usuarioController.usuario.usuario}"/>
 				<br></br>
 				<p:outputLabel for="contraseña" value="Contraseña:" />
@@ -32,7 +42,7 @@
                                 <p:inputText id="contraseña" type="password" required="true" value ="#{usuarioController.usuario.contraseña}"/>
 				<br></br>
 
-                                <p:commandButton value="Registrar" actionListener="#{usuarioController.registrar()}" icon="ui-icon-disk" update="mensaje" ajax="false" action="menu_administrador?faces-redirect=true"/>
+                                <p:commandButton value="Registrar" actionListener="#{usuarioController.crearUsuario()}" icon="ui-icon-disk" update="mensaje" ajax="false" />
 			</h:panelGrid>
 		</h:form>
 

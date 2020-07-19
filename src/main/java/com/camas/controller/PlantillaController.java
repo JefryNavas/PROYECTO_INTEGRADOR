@@ -9,7 +9,7 @@ import javax.inject.Named;
 
 @Named
 @ViewScoped
-public class VerificarController implements Serializable{
+public class PlantillaController implements Serializable{
     
     
     
