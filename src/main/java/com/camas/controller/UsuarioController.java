@@ -10,6 +10,9 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
+import reportes.CONSULTAS;
+import com.camas.model.*;
+import static java.lang.System.out;
 
 @Named
 @ViewScoped
@@ -21,6 +24,8 @@ public class UsuarioController implements Serializable{
     private int perfil;
     private List<Usuario> usuariolist;
     private String accion;
+    CONSULTAS con = new CONSULTAS();
+    CONEXION cone = new CONEXION();
 
     public UsuarioController() {
     }
@@ -73,13 +78,7 @@ public class UsuarioController implements Serializable{
     public void setPerfil(int perfil) {
         this.perfil = perfil;
     }
-    
-    
-    
 
-    
-    
-    
     public void registrar(){
         
         try{
@@ -134,9 +133,17 @@ public class UsuarioController implements Serializable{
         return redireccion;
     }
      
-     public String mostrarUsuarioLogeado(){
+       public String mostrarUsuarioLogeado(){
     Usuario us = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
            return us.getUsuario();
+}
+     public String mostrarUsuarioNombre(){
+    Usuario us = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
+           return us.getNombres();
+}
+     public String mostrarUsuarioApellido(){
+    Usuario us = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
+           return us.getApellidos();
 }
      public void leer(Usuario Useleccion){
           usuariolist = usuarioEJB.findAll();
@@ -155,7 +162,5 @@ public class UsuarioController implements Serializable{
       FacesContext.getCurrentInstance().addMessage(null,new FacesMessage(FacesMessage.SEVERITY_INFO,"","Usuario Eliminado"));
            
      }
-     
-
      
 }

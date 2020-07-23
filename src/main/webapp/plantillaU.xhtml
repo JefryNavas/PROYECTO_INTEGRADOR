@@ -12,7 +12,7 @@
         <h:outputStylesheet name="./css/cssLayout.css"/>
         <title>Facelets Template</title>
         <f:event type="preRenderView" listener="#{plantillaController.verificarSesion()}"/>
-        
+        <link rel="stylesheet" href="estilos/reporte.css" />
     </h:head>
 
     <h:body>
@@ -21,7 +21,7 @@
             <ui:insert name="top">
                  <h:form>
                     <div align="right">
-                         Bienvenido Usuario: #{usuarioController.mostrarUsuarioLogeado()}
+                        Bienvenido Usuario: #{usuarioController.mostrarUsuarioNombre()} #{usuarioController.mostrarUsuarioApellido()}
                    
                          <p:commandButton actionListener="#{plantillaController.cerrarSesion()}" value="Cerrar Sesión" action="/iniciar_sesion?faces-redirect=true"/>
                 
@@ -34,8 +34,16 @@
             <ui:insert name="content">Content</ui:insert>
         </div>
 
-        <div id="bottom">
-            <ui:insert name="bottom">Bottom</ui:insert>
+        <div >
+            <ui:insert name="bottom">
+               <h5 align="center">
+
+			Universidad Politecnica Salesiana <br /> Ingeniería en Ciencias de
+			la Computación <br /> Creadores: Joel Yunga, Estacio Jefferson,
+			Jefry Navas
+
+		</h5>
+            </ui:insert>
         </div>
 
     </h:body>

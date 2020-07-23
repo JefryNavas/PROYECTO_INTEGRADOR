@@ -2,6 +2,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+
+    
+  
+    
+   
+    
     <groupId>com.mycompany</groupId>
     <artifactId>PROYECTO</artifactId>
     <version>1.0-SNAPSHOT</version>
@@ -76,6 +82,96 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
+            <groupId>classic-</groupId>
+            <artifactId>classic-</artifactId>
+            <version>1</version>
+        </dependency>
+        <dependency>
+            <groupId>classic-ext</groupId>
+            <artifactId>classic-ext</artifactId>
+            <version>1</version>
+        </dependency>
+        <dependency>
+            <groupId>logging</groupId>
+            <artifactId>logging</artifactId>
+            <version>1</version>
+        </dependency>
+        <dependency>
+            <groupId>itexxt</groupId>
+            <artifactId>itexxt</artifactId>
+            <version>1</version>
+        </dependency>
+        <dependency>
+            <groupId>libbase</groupId>
+            <artifactId>libbase</artifactId>
+            <version>1</version>
+        </dependency>
+        <dependency>
+            <groupId>docbundle</groupId>
+            <artifactId>docbundle</artifactId>
+            <version>1</version>
+        </dependency>
+        <dependency>
+            <groupId>libfonts</groupId>
+            <artifactId>libfotns</artifactId>
+            <version>1</version>
+        </dependency>
+        <dependency>
+            <groupId>libformat</groupId>
+            <artifactId>libformat</artifactId>
+            <version>1</version>
+        </dependency>
+        <dependency>
+            <groupId>libformula</groupId>
+            <artifactId>libformula</artifactId>
+            <version>1</version>
+        </dependency>
+        <dependency>
+            <groupId>libloader</groupId>
+            <artifactId>libloader</artifactId>
+            <version>1</version>
+        </dependency>
+        <dependency>
+            <groupId>librepo</groupId>
+            <artifactId>librepo</artifactId>
+            <version>1</version>
+        </dependency>
+        <dependency>
+            <groupId>libse</groupId>
+            <artifactId>libse</artifactId>
+            <version>1</version>
+        </dependency>
+        <dependency>
+            <groupId>libspa</groupId>
+            <artifactId>libspa</artifactId>
+            <version>1</version>
+        </dependency>
+        <dependency>
+            <groupId>libswing</groupId>
+            <artifactId>libswing</artifactId>
+            <version>1</version>
+        </dependency>
+        <dependency>
+            <groupId>libxml</groupId>
+            <artifactId>libxml</artifactId>
+            <version>1</version>
+        </dependency>
+        <dependency>
+            <groupId>pencor</groupId>
+            <artifactId>pencore</artifactId>
+            <version>1</version>
+        </dependency>
+        <dependency>
+            <groupId>penxt</groupId>
+            <artifactId>penxt</artifactId>
+            <version>1</version>
+        </dependency>
+        <dependency>
+            <groupId>postgres</groupId>
+            <artifactId>postgres</artifactId>
+            <version>1</version>
+        </dependency>
+        <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
             <version>7.0</version>
@@ -93,7 +189,8 @@
 	<artifactId>all-themes</artifactId>
 	<version>1.0.10</version>
         </dependency>
-        
+
+       
     </dependencies>
     
     <build>
@@ -146,16 +243,13 @@
         </plugins>
     </build>
     <repositories>
-        <repository>
-            <id>unknown-jars-temp-repo</id>
-            <name>A temporary repository created by NetBeans for libraries and jars it could not identify. Please replace the dependencies in this repository with correct ones and delete this repository.</name>
-            <url>file:${project.basedir}/lib</url>
-        </repository>
+
         <repository>
         <id>prime-repo</id>
         <name>PrimeFaces Maven Repository</name>
         <url>http://repository.primefaces.org</url>
         <layout>default</layout>
          </repository>
+
     </repositories>
 </project>

@@ -2,19 +2,1703 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      >
 
+    
     <h:head>
+        <title>Reportes</title>
+        
     </h:head>
-     <body>
+     <h:body>
 
         <ui:composition template="./plantillaU.xhtml">
 
             <ui:define name="content">
-               
+            <p:panel id="panel" header="REPORTES PERSONALIZADOS" style="text-align: center;">
+                    <form>
+
+		<div class="content-select">
+			<h2>Categorias:</h2>
+			<br/> <SELECT name="cmbejes" class="content-select" id="ejes"
+				onchange='mostrar()'>
+				<OPTION VALUE="0">Seleccione un tipo</OPTION>
+				<OPTION VALUE="1">Años</OPTION>
+				<OPTION VALUE="2">Ubicación</OPTION>
+                                <OPTION VALUE="3">Establecimiento</OPTION>
+			</SELECT>
+		</div>
+                <div class="content-select" style="display: none" id="anios">
+			<h2>Años:</h2>
+			<br/> <SELECT name="cmbejes" class="content-select" id="aniosqt"
+				onchange='anios()'>
+				<OPTION VALUE="0">Seleccione un año:</OPTION>
+				<OPTION VALUE="2017">2017</OPTION>
+				<OPTION VALUE="2018">2018</OPTION>
+			</SELECT>
+		</div>
+                   <div class="content-select" style="display: none" id="geo">
+			<h2>Provincias:</h2>
+			 <SELECT name="cmbgeo" class="content-select" id="cmbubicacion"
+				onchange='ubicacion()'>
+				<OPTION value="0">Seleccione una provincia:</OPTION>
+				<OPTION VALUE="1">AZUAY</OPTION>
+				<OPTION VALUE="2">ZAMORA CHINCHIPE</OPTION>
+				<OPTION VALUE="3">GALÁPAGOS</OPTION>
+                                <OPTION VALUE="4">SANTA ELENA</OPTION>
+                                <OPTION VALUE="5">LOJA</OPTION>
+                                <OPTION VALUE="6">MANABÍ</OPTION>
+                                <OPTION VALUE="7">GUAYAS</OPTION>
+                                <OPTION VALUE="8">NAPO</OPTION>
+                                <OPTION VALUE="9">ESMERALDAS</OPTION>
+                                <OPTION VALUE="10">CARCHI</OPTION>
+                                <OPTION VALUE="11">PICHINCHA</OPTION>
+                                <OPTION VALUE="12">COTOPAXI</OPTION>
+                                <OPTION VALUE="13">IMBABURA</OPTION>
+                                <OPTION VALUE="14">BOLÍVAR</OPTION>
+                                <OPTION VALUE="15">SANTO DOMINGO DE LOS TSÁCHILAS</OPTION>
+                                <OPTION VALUE="16">EL ORO</OPTION>
+                                <OPTION VALUE="17">SUCUMBIOS</OPTION>
+                                <OPTION VALUE="18">TUNGURAHUA</OPTION>
+                                <OPTION VALUE="19">CAÑAR</OPTION>
+                                <OPTION VALUE="20">MORONA SANTIAGO</OPTION>
+                                <OPTION VALUE="21">ORELLANA</OPTION>
+                                <OPTION VALUE="22">PASTAZA</OPTION>
+                                <OPTION VALUE="23">CHIMBORAZO</OPTION>
+                                <OPTION VALUE="24">LOS RÍOS</OPTION>
+			</SELECT>
+                
+                   </div>
+                   <div class="content-select" style="display: none" id="establec">
+			<h2>Establecimiento:</h2>
+			<br/> <SELECT name="cmbesta" class="content-select" id="cmbestablecimiento"
+				onchange='establecimiento()'>
+				<OPTION VALUE="0">Seleccione un establecimiento:</OPTION>
+				<OPTION VALUE="1">MUNICIPIOS</OPTION>
+				<OPTION VALUE="2">JUNTA BENEFICENCIA DE GUAYAQUIL</OPTION>
+                                <OPTION VALUE="3">INSTITUTO ECUATORIANO DE SEGURIDAD SOCIAL</OPTION>
+				<OPTION VALUE="4">UNIVERSIDADES Y POLITECNICAS</OPTION>
+                                <OPTION VALUE="5">PRIVADO SIN FINES DE LUCRO</OPTION>
+				<OPTION VALUE="6">MINISTERIO DE JUSTICIA, DERECHOS HUMANOS Y CULTOS</OPTION>
+                                <OPTION VALUE="7">MINISTERIO DE SALUD PÚBLICA</OPTION>
+				<OPTION VALUE="8">PRIVADO CON FINES DE LUCRO</OPTION>
+                                <OPTION VALUE="9">SOCIEDAD DE LUCHA CONTRA EL CÁNCER</OPTION>
+				<OPTION VALUE="10">MINISTERIO DE DEFENSA NACIONAL</OPTION>
+			</SELECT>
+		</div>
+                        
+                        
+		
+                        
+                        
+                        
+                        <div style="display: none" id="vs">
+                            <a href="report"> <p:commandButton type="button" class="boton" value="Comparar Años" /> </a>
+                        </div>
+                        
+                        <br/>
+                        <div style="display: none" id="2017">
+                            <a href="report"> <p:commandButton type="button" class="boton" value="Reporte 2017" /> </a>
+                        </div>
+                        <div style="display: none" id="2018">
+                            <a href="report"> <p:commandButton type="button" class="boton" value="Reporte 2018" /> </a>
+                        </div>
+                        <div style="display: none" id="azuay">
+                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte de Azuay" /> </a>
+                        </div>
+                        <div style="display: none" id="zamora">
+                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte de Zamora Chinchipe" /> </a>
+                        </div>
+                        <div style="display: none" id="galapagos">
+                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte de Galápagos" /> </a>
+                        </div>
+                        <div style="display: none" id="santaelena">
+                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte de Santa Elena" /> </a>
+                        </div>
+                        <div style="display: none" id="loja">
+                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte de Loja" /> </a>
+                        </div>
+                        <div style="display: none" id="manabi">
+                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte de Manabí" /> </a>
+                        </div>
+                        <div style="display: none" id="guayas">
+                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte de Guayas" /></a>
+                        </div>
+                        <div style="display: none" id="napo">
+                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte de Napo" /> </a>
+                        </div>
+                        
+                        <div style="display: none" id="esmeraldas">
+                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte de Esmeraldas" /> </a>
+                        </div>
+                        <div style="display: none" id="carchi">
+                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte de Carchi" /> </a>
+                        </div>
+                        <div style="display: none" id="pichincha">
+                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte de Pichincha" /> </a>
+                        </div>
+                        <div style="display: none" id="cotopaxi">
+                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte de Cotopaxi" /> </a>
+                        </div>
+                        <div style="display: none" id="imbabura">
+                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte de Inmbabura" /> </a>
+                        </div>
+                        <div style="display: none" id="bolivar">
+                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte de Bolivár" /> </a>
+                        </div>
+                        <div style="display: none" id="santo">
+                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte de Santo Domingo" /> </a>
+                        </div>
+                        <div style="display: none" id="eloro">
+                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte de El Oro" /> </a>
+                        </div>
+                        <div style="display: none" id="sucumbios">
+                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte de Sucumbios" /> </a>
+                        </div>
+                        <div style="display: none" id="tungurahua">
+                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte de Tungurahua" /> </a>
+                        </div>
+                        <div style="display: none" id="cañar">
+                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte de Cañar" /> </a>
+                        </div>
+                        <div style="display: none" id="morona">
+                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte de Morona Santiago" /> </a>
+                        </div>
+                        <div style="display: none" id="orellana">
+                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte de Orellana" /> </a>
+                        </div>
+                        <div style="display: none" id="pastaza">
+                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte de Pastaza" /> </a>
+                        </div>
+                        <div style="display: none" id="chimborazo">
+                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte de Chimborazo" /> </a>
+                        </div>
+                        <div style="display: none" id="losrios">
+                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte de Los Ríos" /> </a>
+                        </div>
+                        <div style="display: none" id="est1">
+                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte 1" /> </a>
+                        </div>
+                        <div style="display: none" id="est2">
+                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte 2" /> </a>
+                        </div>
+                        <div style="display: none" id="est3">
+                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte 3" /> </a>
+                        </div>  
+                        <div style="display: none" id="est4">
+                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte 4" /> </a>
+                        </div>
+                        <div style="display: none" id="est5">
+                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte 5" /> </a>
+                        </div>
+                        <div style="display: none" id="est6">
+                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte 6" /> </a>
+                        </div>
+                        <div style="display: none" id="est7">
+                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte 7" /> </a>
+                        </div>
+                        <div style="display: none" id="est8">
+                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte 8" /> </a>
+                        </div>
+                        <div style="display: none" id="est9">
+                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte 9" /> </a>
+                        </div>
+                        <div style="display: none" id="est10">
+                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte 10" /> </a>
+                        </div>
+                
+   </form>
+                        
+                
+                
+                </p:panel>
+   
+                
+                <script type="text/javascript">
+                    
+            function mostrar() {
+			var cargo = document.getElementById("ejes").value;
+			if (cargo == "1") {
+				document.getElementById("anios").style.display = "inherit";
+				document.getElementById("vs").style.display = "inherit";
+                                document.getElementById("geo").style.display = "none";
+                                document.getElementById("establec").style.display = "none";
+				
+        }
+			if (cargo == "2") {
+                            document.getElementById("geo").style.display = "inherit";
+                            document.getElementById("vs").style.display = "none";
+                            document.getElementById("anios").style.display = "none";
+                            document.getElementById("establec").style.display = "none";
+				
+			}
+                        if (cargo == "3") {
+                            document.getElementById("establec").style.display = "inherit";
+                            document.getElementById("vs").style.display = "none";
+                            document.getElementById("anios").style.display = "none";
+                            document.getElementById("geo").style.display = "none";
+				
+			}
+		};
+                
+                
+                function ubicacion(){
+                    var ubi = document.getElementById("cmbubicacion").value;
+                    if(ubi == "1"){
+                                document.getElementById("azuay").style.display = "inherit";
+                                document.getElementById("zamora").style.display = "none";
+                                document.getElementById("galapagos").style.display = "none";
+                                document.getElementById("santaelena").style.display = "none";
+                                document.getElementById("loja").style.display = "none";
+                                document.getElementById("manabi").style.display = "none";
+                                document.getElementById("guayas").style.display = "none";
+                                document.getElementById("napo").style.display = "none";
+                                document.getElementById("esmeraldas").style.display = "none";
+                                document.getElementById("carchi").style.display = "none";
+                                document.getElementById("pichincha").style.display = "none";
+                                document.getElementById("cotopaxi").style.display = "none";
+                                document.getElementById("imbabura").style.display = "none";
+                                document.getElementById("bolivar").style.display = "none";
+                                document.getElementById("santo").style.display = "none";
+                                document.getElementById("eloro").style.display = "none";
+                                document.getElementById("sucumbios").style.display = "none";
+                                document.getElementById("tungurahua").style.display = "none";
+                                document.getElementById("cañar").style.display = "none";
+                                document.getElementById("morona").style.display = "none";
+                                document.getElementById("orellana").style.display = "none";
+                                document.getElementById("pastaza").style.display = "none";
+                                document.getElementById("chimborazo").style.display = "none";
+                                document.getElementById("losrios").style.display = "none";
+                                document.getElementById("2017").style.display = "none";
+                                document.getElementById("2018").style.display = "none";
+                                document.getElementById("est1").style.display = "none";
+                                document.getElementById("est2").style.display = "none";
+                                document.getElementById("est3").style.display = "none";
+                                document.getElementById("est4").style.display = "none";
+                                document.getElementById("est5").style.display = "none";
+                                document.getElementById("est6").style.display = "none";
+                                document.getElementById("est7").style.display = "none";
+                                document.getElementById("est8").style.display = "none";
+                                document.getElementById("est9").style.display = "none";
+                                document.getElementById("est10").style.display = "none";
+                                
+                        
+                    }
+                    if(ubi == "2"){
+                                document.getElementById("azuay").style.display = "none";
+                                document.getElementById("zamora").style.display = "inherit";
+                                document.getElementById("galapagos").style.display = "none";
+                                document.getElementById("santaelena").style.display = "none";
+                                document.getElementById("loja").style.display = "none";
+                                document.getElementById("manabi").style.display = "none";
+                                document.getElementById("guayas").style.display = "none";
+                                document.getElementById("napo").style.display = "none";
+                                document.getElementById("esmeraldas").style.display = "none";
+                                document.getElementById("carchi").style.display = "none";
+                                document.getElementById("pichincha").style.display = "none";
+                                document.getElementById("cotopaxi").style.display = "none";
+                                document.getElementById("imbabura").style.display = "none";
+                                document.getElementById("bolivar").style.display = "none";
+                                document.getElementById("santo").style.display = "none";
+                                document.getElementById("eloro").style.display = "none";
+                                document.getElementById("sucumbios").style.display = "none";
+                                document.getElementById("tungurahua").style.display = "none";
+                                document.getElementById("cañar").style.display = "none";
+                                document.getElementById("morona").style.display = "none";
+                                document.getElementById("orellana").style.display = "none";
+                                document.getElementById("pastaza").style.display = "none";
+                                document.getElementById("chimborazo").style.display = "none";
+                                document.getElementById("losrios").style.display = "none";
+                                document.getElementById("2017").style.display = "none";
+                                document.getElementById("2018").style.display = "none";
+                                document.getElementById("est1").style.display = "none";
+                                document.getElementById("est2").style.display = "none";
+                                document.getElementById("est3").style.display = "none";
+                                document.getElementById("est4").style.display = "none";
+                                document.getElementById("est5").style.display = "none";
+                                document.getElementById("est6").style.display = "none";
+                                document.getElementById("est7").style.display = "none";
+                                document.getElementById("est8").style.display = "none";
+                                document.getElementById("est9").style.display = "none";
+                                document.getElementById("est10").style.display = "none";
+                                
+                        
+                    }
+                    if(ubi == "3"){
+                                document.getElementById("azuay").style.display = "none";
+                                document.getElementById("zamora").style.display = "none";
+                                document.getElementById("galapagos").style.display = "inherit";
+                                document.getElementById("santaelena").style.display = "none";
+                                document.getElementById("loja").style.display = "none";
+                                document.getElementById("manabi").style.display = "none";
+                                document.getElementById("guayas").style.display = "none";
+                                document.getElementById("napo").style.display = "none";
+                                document.getElementById("esmeraldas").style.display = "none";
+                                document.getElementById("carchi").style.display = "none";
+                                document.getElementById("pichincha").style.display = "none";
+                                document.getElementById("cotopaxi").style.display = "none";
+                                document.getElementById("imbabura").style.display = "none";
+                                document.getElementById("bolivar").style.display = "none";
+                                document.getElementById("santo").style.display = "none";
+                                document.getElementById("eloro").style.display = "none";
+                                document.getElementById("sucumbios").style.display = "none";
+                                document.getElementById("tungurahua").style.display = "none";
+                                document.getElementById("cañar").style.display = "none";
+                                document.getElementById("morona").style.display = "none";
+                                document.getElementById("orellana").style.display = "none";
+                                document.getElementById("pastaza").style.display = "none";
+                                document.getElementById("chimborazo").style.display = "none";
+                                document.getElementById("losrios").style.display = "none";
+                                document.getElementById("2017").style.display = "none";
+                                document.getElementById("2018").style.display = "none";
+                                document.getElementById("est1").style.display = "none";
+                                document.getElementById("est2").style.display = "none";
+                                document.getElementById("est3").style.display = "none";
+                                document.getElementById("est4").style.display = "none";
+                                document.getElementById("est5").style.display = "none";
+                                document.getElementById("est6").style.display = "none";
+                                document.getElementById("est7").style.display = "none";
+                                document.getElementById("est8").style.display = "none";
+                                document.getElementById("est9").style.display = "none";
+                                document.getElementById("est10").style.display = "none";
+                                
+                    }
+                    if(ubi == "4"){
+                                document.getElementById("azuay").style.display = "none";
+                                document.getElementById("zamora").style.display = "none";
+                                document.getElementById("galapagos").style.display = "none";
+                                document.getElementById("santaelena").style.display = "inherit";
+                                document.getElementById("loja").style.display = "none";
+                                document.getElementById("manabi").style.display = "none";
+                                document.getElementById("guayas").style.display = "none";
+                                document.getElementById("napo").style.display = "none";
+                                document.getElementById("esmeraldas").style.display = "none";
+                                document.getElementById("carchi").style.display = "none";
+                                document.getElementById("pichincha").style.display = "none";
+                                document.getElementById("cotopaxi").style.display = "none";
+                                document.getElementById("imbabura").style.display = "none";
+                                document.getElementById("bolivar").style.display = "none";
+                                document.getElementById("santo").style.display = "none";
+                                document.getElementById("eloro").style.display = "none";
+                                document.getElementById("sucumbios").style.display = "none";
+                                document.getElementById("tungurahua").style.display = "none";
+                                document.getElementById("cañar").style.display = "none";
+                                document.getElementById("morona").style.display = "none";
+                                document.getElementById("orellana").style.display = "none";
+                                document.getElementById("pastaza").style.display = "none";
+                                document.getElementById("chimborazo").style.display = "none";
+                                document.getElementById("losrios").style.display = "none";
+                                document.getElementById("2017").style.display = "none";
+                                document.getElementById("2018").style.display = "none";
+                                document.getElementById("est1").style.display = "none";
+                                document.getElementById("est2").style.display = "none";
+                                document.getElementById("est3").style.display = "none";
+                                document.getElementById("est4").style.display = "none";
+                                document.getElementById("est5").style.display = "none";
+                                document.getElementById("est6").style.display = "none";
+                                document.getElementById("est7").style.display = "none";
+                                document.getElementById("est8").style.display = "none";
+                                document.getElementById("est9").style.display = "none";
+                                document.getElementById("est10").style.display = "none";
+                                
+                    }
+                    if(ubi == "5"){
+                                document.getElementById("azuay").style.display = "none";
+                                document.getElementById("zamora").style.display = "none";
+                                document.getElementById("galapagos").style.display = "none";
+                                document.getElementById("santaelena").style.display = "none";
+                                document.getElementById("loja").style.display = "inherit";
+                                document.getElementById("manabi").style.display = "none";
+                                document.getElementById("guayas").style.display = "none";
+                                document.getElementById("napo").style.display = "none";
+                                document.getElementById("esmeraldas").style.display = "none";
+                                document.getElementById("carchi").style.display = "none";
+                                document.getElementById("pichincha").style.display = "none";
+                                document.getElementById("cotopaxi").style.display = "none";
+                                document.getElementById("imbabura").style.display = "none";
+                                document.getElementById("bolivar").style.display = "none";
+                                document.getElementById("santo").style.display = "none";
+                                document.getElementById("eloro").style.display = "none";
+                                document.getElementById("sucumbios").style.display = "none";
+                                document.getElementById("tungurahua").style.display = "none";
+                                document.getElementById("cañar").style.display = "none";
+                                document.getElementById("morona").style.display = "none";
+                                document.getElementById("orellana").style.display = "none";
+                                document.getElementById("pastaza").style.display = "none";
+                                document.getElementById("chimborazo").style.display = "none";
+                                document.getElementById("losrios").style.display = "none";
+                                document.getElementById("2017").style.display = "none";
+                                document.getElementById("2018").style.display = "none";
+                                document.getElementById("est1").style.display = "none";
+                                document.getElementById("est2").style.display = "none";
+                                document.getElementById("est3").style.display = "none";
+                                document.getElementById("est4").style.display = "none";
+                                document.getElementById("est5").style.display = "none";
+                                document.getElementById("est6").style.display = "none";
+                                document.getElementById("est7").style.display = "none";
+                                document.getElementById("est8").style.display = "none";
+                                document.getElementById("est9").style.display = "none";
+                                document.getElementById("est10").style.display = "none";
+                                
+                    }
+                    if(ubi == "6"){
+                                document.getElementById("azuay").style.display = "none";
+                                document.getElementById("zamora").style.display = "none";
+                                document.getElementById("galapagos").style.display = "none";
+                                document.getElementById("santaelena").style.display = "none";
+                                document.getElementById("loja").style.display = "none";
+                                document.getElementById("manabi").style.display = "inherit";
+                                document.getElementById("guayas").style.display = "none";
+                                document.getElementById("napo").style.display = "none";
+                                document.getElementById("esmeraldas").style.display = "none";
+                                document.getElementById("carchi").style.display = "none";
+                                document.getElementById("pichincha").style.display = "none";
+                                document.getElementById("cotopaxi").style.display = "none";
+                                document.getElementById("imbabura").style.display = "none";
+                                document.getElementById("bolivar").style.display = "none";
+                                document.getElementById("santo").style.display = "none";
+                                document.getElementById("eloro").style.display = "none";
+                                document.getElementById("sucumbios").style.display = "none";
+                                document.getElementById("tungurahua").style.display = "none";
+                                document.getElementById("cañar").style.display = "none";
+                                document.getElementById("morona").style.display = "none";
+                                document.getElementById("orellana").style.display = "none";
+                                document.getElementById("pastaza").style.display = "none";
+                                document.getElementById("chimborazo").style.display = "none";
+                                document.getElementById("losrios").style.display = "none";
+                                document.getElementById("2017").style.display = "none";
+                                document.getElementById("2018").style.display = "none";
+                                document.getElementById("est1").style.display = "none";
+                                document.getElementById("est2").style.display = "none";
+                                document.getElementById("est3").style.display = "none";
+                                document.getElementById("est4").style.display = "none";
+                                document.getElementById("est5").style.display = "none";
+                                document.getElementById("est6").style.display = "none";
+                                document.getElementById("est7").style.display = "none";
+                                document.getElementById("est8").style.display = "none";
+                                document.getElementById("est9").style.display = "none";
+                                document.getElementById("est10").style.display = "none";
+                                
+                    }
+                    if(ubi == "7"){
+                                document.getElementById("azuay").style.display = "none";
+                                document.getElementById("zamora").style.display = "none";
+                                document.getElementById("galapagos").style.display = "none";
+                                document.getElementById("santaelena").style.display = "none";
+                                document.getElementById("loja").style.display = "none";
+                                document.getElementById("manabi").style.display = "none";
+                                document.getElementById("guayas").style.display = "inherit";
+                                document.getElementById("napo").style.display = "none";
+                                document.getElementById("esmeraldas").style.display = "none";
+                                document.getElementById("carchi").style.display = "none";
+                                document.getElementById("pichincha").style.display = "none";
+                                document.getElementById("cotopaxi").style.display = "none";
+                                document.getElementById("imbabura").style.display = "none";
+                                document.getElementById("bolivar").style.display = "none";
+                                document.getElementById("santo").style.display = "none";
+                                document.getElementById("eloro").style.display = "none";
+                                document.getElementById("sucumbios").style.display = "none";
+                                document.getElementById("tungurahua").style.display = "none";
+                                document.getElementById("cañar").style.display = "none";
+                                document.getElementById("morona").style.display = "none";
+                                document.getElementById("orellana").style.display = "none";
+                                document.getElementById("pastaza").style.display = "none";
+                                document.getElementById("chimborazo").style.display = "none";
+                                document.getElementById("losrios").style.display = "none";
+                                document.getElementById("2017").style.display = "none";
+                                document.getElementById("2018").style.display = "none";
+                                document.getElementById("est1").style.display = "none";
+                                document.getElementById("est2").style.display = "none";
+                                document.getElementById("est3").style.display = "none";
+                                document.getElementById("est4").style.display = "none";
+                                document.getElementById("est5").style.display = "none";
+                                document.getElementById("est6").style.display = "none";
+                                document.getElementById("est7").style.display = "none";
+                                document.getElementById("est8").style.display = "none";
+                                document.getElementById("est9").style.display = "none";
+                                document.getElementById("est10").style.display = "none";
+                                
+                    }
+                    if(ubi == "8"){
+                                document.getElementById("azuay").style.display = "none";
+                                document.getElementById("zamora").style.display = "none";
+                                document.getElementById("galapagos").style.display = "none";
+                                document.getElementById("santaelena").style.display = "none";
+                                document.getElementById("loja").style.display = "none";
+                                document.getElementById("manabi").style.display = "none";
+                                document.getElementById("guayas").style.display = "none";
+                                document.getElementById("napo").style.display = "inherit";
+                                document.getElementById("esmeraldas").style.display = "none";
+                                document.getElementById("carchi").style.display = "none";
+                                document.getElementById("pichincha").style.display = "none";
+                                document.getElementById("cotopaxi").style.display = "none";
+                                document.getElementById("imbabura").style.display = "none";
+                                document.getElementById("bolivar").style.display = "none";
+                                document.getElementById("santo").style.display = "none";
+                                document.getElementById("eloro").style.display = "none";
+                                document.getElementById("sucumbios").style.display = "none";
+                                document.getElementById("tungurahua").style.display = "none";
+                                document.getElementById("cañar").style.display = "none";
+                                document.getElementById("morona").style.display = "none";
+                                document.getElementById("orellana").style.display = "none";
+                                document.getElementById("pastaza").style.display = "none";
+                                document.getElementById("chimborazo").style.display = "none";
+                                document.getElementById("losrios").style.display = "none";
+                                document.getElementById("2017").style.display = "none";
+                                document.getElementById("2018").style.display = "none";
+                                document.getElementById("est1").style.display = "none";
+                                document.getElementById("est2").style.display = "none";
+                                document.getElementById("est3").style.display = "none";
+                                document.getElementById("est4").style.display = "none";
+                                document.getElementById("est5").style.display = "none";
+                                document.getElementById("est6").style.display = "none";
+                                document.getElementById("est7").style.display = "none";
+                                document.getElementById("est8").style.display = "none";
+                                document.getElementById("est9").style.display = "none";
+                                document.getElementById("est10").style.display = "none";
+                                
+                    }
+                    if(ubi == "9"){
+                                document.getElementById("azuay").style.display = "none";
+                                document.getElementById("zamora").style.display = "none";
+                                document.getElementById("galapagos").style.display = "none";
+                                document.getElementById("santaelena").style.display = "none";
+                                document.getElementById("loja").style.display = "none";
+                                document.getElementById("manabi").style.display = "none";
+                                document.getElementById("guayas").style.display = "none";
+                                document.getElementById("napo").style.display = "none";
+                                document.getElementById("esmeraldas").style.display = "inherit";
+                                document.getElementById("carchi").style.display = "none";
+                                document.getElementById("pichincha").style.display = "none";
+                                document.getElementById("cotopaxi").style.display = "none";
+                                document.getElementById("imbabura").style.display = "none";
+                                document.getElementById("bolivar").style.display = "none";
+                                document.getElementById("santo").style.display = "none";
+                                document.getElementById("eloro").style.display = "none";
+                                document.getElementById("sucumbios").style.display = "none";
+                                document.getElementById("tungurahua").style.display = "none";
+                                document.getElementById("cañar").style.display = "none";
+                                document.getElementById("morona").style.display = "none";
+                                document.getElementById("orellana").style.display = "none";
+                                document.getElementById("pastaza").style.display = "none";
+                                document.getElementById("chimborazo").style.display = "none";
+                                document.getElementById("losrios").style.display = "none";
+                                document.getElementById("2017").style.display = "none";
+                                document.getElementById("2018").style.display = "none";
+                                document.getElementById("est1").style.display = "none";
+                                document.getElementById("est2").style.display = "none";
+                                document.getElementById("est3").style.display = "none";
+                                document.getElementById("est4").style.display = "none";
+                                document.getElementById("est5").style.display = "none";
+                                document.getElementById("est6").style.display = "none";
+                                document.getElementById("est7").style.display = "none";
+                                document.getElementById("est8").style.display = "none";
+                                document.getElementById("est9").style.display = "none";
+                                document.getElementById("est10").style.display = "none";
+                                
+                    }
+                    if(ubi == "10"){
+                                document.getElementById("azuay").style.display = "none";
+                                document.getElementById("zamora").style.display = "none";
+                                document.getElementById("galapagos").style.display = "none";
+                                document.getElementById("santaelena").style.display = "none";
+                                document.getElementById("loja").style.display = "none";
+                                document.getElementById("manabi").style.display = "none";
+                                document.getElementById("guayas").style.display = "none";
+                                document.getElementById("napo").style.display = "none";
+                                document.getElementById("esmeraldas").style.display = "none";
+                                document.getElementById("carchi").style.display = "inherit";
+                                document.getElementById("pichincha").style.display = "none";
+                                document.getElementById("cotopaxi").style.display = "none";
+                                document.getElementById("imbabura").style.display = "none";
+                                document.getElementById("bolivar").style.display = "none";
+                                document.getElementById("santo").style.display = "none";
+                                document.getElementById("eloro").style.display = "none";
+                                document.getElementById("sucumbios").style.display = "none";
+                                document.getElementById("tungurahua").style.display = "none";
+                                document.getElementById("cañar").style.display = "none";
+                                document.getElementById("morona").style.display = "none";
+                                document.getElementById("orellana").style.display = "none";
+                                document.getElementById("pastaza").style.display = "none";
+                                document.getElementById("chimborazo").style.display = "none";
+                                document.getElementById("losrios").style.display = "none";
+                                document.getElementById("2017").style.display = "none";
+                                document.getElementById("2018").style.display = "none";
+                                document.getElementById("est1").style.display = "none";
+                                document.getElementById("est2").style.display = "none";
+                                document.getElementById("est3").style.display = "none";
+                                document.getElementById("est4").style.display = "none";
+                                document.getElementById("est5").style.display = "none";
+                                document.getElementById("est6").style.display = "none";
+                                document.getElementById("est7").style.display = "none";
+                                document.getElementById("est8").style.display = "none";
+                                document.getElementById("est9").style.display = "none";
+                                document.getElementById("est10").style.display = "none";
+                                
+                    }
+                    if(ubi == "11"){
+                                document.getElementById("azuay").style.display = "none";
+                                document.getElementById("zamora").style.display = "none";
+                                document.getElementById("galapagos").style.display = "none";
+                                document.getElementById("santaelena").style.display = "none";
+                                document.getElementById("loja").style.display = "none";
+                                document.getElementById("manabi").style.display = "none";
+                                document.getElementById("guayas").style.display = "none";
+                                document.getElementById("napo").style.display = "none";
+                                document.getElementById("esmeraldas").style.display = "none";
+                                document.getElementById("carchi").style.display = "none";
+                                document.getElementById("pichincha").style.display = "inherit";
+                                document.getElementById("cotopaxi").style.display = "none";
+                                document.getElementById("imbabura").style.display = "none";
+                                document.getElementById("bolivar").style.display = "none";
+                                document.getElementById("santo").style.display = "none";
+                                document.getElementById("eloro").style.display = "none";
+                                document.getElementById("sucumbios").style.display = "none";
+                                document.getElementById("tungurahua").style.display = "none";
+                                document.getElementById("cañar").style.display = "none";
+                                document.getElementById("morona").style.display = "none";
+                                document.getElementById("orellana").style.display = "none";
+                                document.getElementById("pastaza").style.display = "none";
+                                document.getElementById("chimborazo").style.display = "none";
+                                document.getElementById("losrios").style.display = "none";
+                                document.getElementById("2017").style.display = "none";
+                                document.getElementById("2018").style.display = "none";
+                                document.getElementById("est1").style.display = "none";
+                                document.getElementById("est2").style.display = "none";
+                                document.getElementById("est3").style.display = "none";
+                                document.getElementById("est4").style.display = "none";
+                                document.getElementById("est5").style.display = "none";
+                                document.getElementById("est6").style.display = "none";
+                                document.getElementById("est7").style.display = "none";
+                                document.getElementById("est8").style.display = "none";
+                                document.getElementById("est9").style.display = "none";
+                                document.getElementById("est10").style.display = "none";
+                                
+                    }
+                    if(ubi == "12"){
+                                document.getElementById("azuay").style.display = "none";
+                                document.getElementById("zamora").style.display = "none";
+                                document.getElementById("galapagos").style.display = "none";
+                                document.getElementById("santaelena").style.display = "none";
+                                document.getElementById("loja").style.display = "none";
+                                document.getElementById("manabi").style.display = "none";
+                                document.getElementById("guayas").style.display = "none";
+                                document.getElementById("napo").style.display = "none";
+                                document.getElementById("esmeraldas").style.display = "none";
+                                document.getElementById("carchi").style.display = "none";
+                                document.getElementById("pichincha").style.display = "none";
+                                document.getElementById("cotopaxi").style.display = "inherit";
+                                document.getElementById("imbabura").style.display = "none";
+                                document.getElementById("bolivar").style.display = "none";
+                                document.getElementById("santo").style.display = "none";
+                                document.getElementById("eloro").style.display = "none";
+                                document.getElementById("sucumbios").style.display = "none";
+                                document.getElementById("tungurahua").style.display = "none";
+                                document.getElementById("cañar").style.display = "none";
+                                document.getElementById("morona").style.display = "none";
+                                document.getElementById("orellana").style.display = "none";
+                                document.getElementById("pastaza").style.display = "none";
+                                document.getElementById("chimborazo").style.display = "none";
+                                document.getElementById("losrios").style.display = "none";
+                                document.getElementById("2017").style.display = "none";
+                                document.getElementById("2018").style.display = "none";
+                                document.getElementById("est1").style.display = "none";
+                                document.getElementById("est2").style.display = "none";
+                                document.getElementById("est3").style.display = "none";
+                                document.getElementById("est4").style.display = "none";
+                                document.getElementById("est5").style.display = "none";
+                                document.getElementById("est6").style.display = "none";
+                                document.getElementById("est7").style.display = "none";
+                                document.getElementById("est8").style.display = "none";
+                                document.getElementById("est9").style.display = "none";
+                                document.getElementById("est10").style.display = "none";
+                                
+                    }
+                    if(ubi == "13"){
+                                document.getElementById("imbabura").style.display = "inherit";
+                                document.getElementById("bolivar").style.display = "none";
+                                document.getElementById("santo").style.display = "none";
+                                document.getElementById("eloro").style.display = "none";
+                                document.getElementById("sucumbios").style.display = "none";
+                                document.getElementById("tungurahua").style.display = "none";
+                                document.getElementById("cañar").style.display = "none";
+                                document.getElementById("morona").style.display = "none";
+                                document.getElementById("orellana").style.display = "none";
+                                document.getElementById("pastaza").style.display = "none";
+                                document.getElementById("chimborazo").style.display = "none";
+                                document.getElementById("losrios").style.display = "none";
+                                document.getElementById("azuay").style.display = "none";
+                                document.getElementById("zamora").style.display = "none";
+                                document.getElementById("galapagos").style.display = "none";
+                                document.getElementById("santaelena").style.display = "none";
+                                document.getElementById("loja").style.display = "none";
+                                document.getElementById("manabi").style.display = "none";
+                                document.getElementById("guayas").style.display = "none";
+                                document.getElementById("napo").style.display = "none";
+                                document.getElementById("esmeraldas").style.display = "none";
+                                document.getElementById("carchi").style.display = "none";
+                                document.getElementById("pichincha").style.display = "none";
+                                document.getElementById("cotopaxi").style.display = "none";
+                                document.getElementById("2017").style.display = "none";
+                                document.getElementById("2018").style.display = "none";
+                                document.getElementById("est1").style.display = "none";
+                                document.getElementById("est2").style.display = "none";
+                                document.getElementById("est3").style.display = "none";
+                                document.getElementById("est4").style.display = "none";
+                                document.getElementById("est5").style.display = "none";
+                                document.getElementById("est6").style.display = "none";
+                                document.getElementById("est7").style.display = "none";
+                                document.getElementById("est8").style.display = "none";
+                                document.getElementById("est9").style.display = "none";
+                                document.getElementById("est10").style.display = "none";
+                                
+                    }
+                    if(ubi == "14"){
+                                document.getElementById("bolivar").style.display = "inherit";
+                                document.getElementById("santo").style.display = "none";
+                                document.getElementById("eloro").style.display = "none";
+                                document.getElementById("sucumbios").style.display = "none";
+                                document.getElementById("tungurahua").style.display = "none";
+                                document.getElementById("cañar").style.display = "none";
+                                document.getElementById("morona").style.display = "none";
+                                document.getElementById("orellana").style.display = "none";
+                                document.getElementById("pastaza").style.display = "none";
+                                document.getElementById("chimborazo").style.display = "none";
+                                document.getElementById("losrios").style.display = "none";
+                                document.getElementById("azuay").style.display = "none";
+                                document.getElementById("zamora").style.display = "none";
+                                document.getElementById("galapagos").style.display = "none";
+                                document.getElementById("santaelena").style.display = "none";
+                                document.getElementById("loja").style.display = "none";
+                                document.getElementById("manabi").style.display = "none";
+                                document.getElementById("guayas").style.display = "none";
+                                document.getElementById("napo").style.display = "none";
+                                document.getElementById("esmeraldas").style.display = "none";
+                                document.getElementById("carchi").style.display = "none";
+                                document.getElementById("pichincha").style.display = "none";
+                                document.getElementById("cotopaxi").style.display = "none";
+                                document.getElementById("imbabura").style.display = "none";
+                                document.getElementById("2017").style.display = "none";
+                                document.getElementById("2018").style.display = "none";
+                                document.getElementById("est1").style.display = "none";
+                                document.getElementById("est2").style.display = "none";
+                                document.getElementById("est3").style.display = "none";
+                                document.getElementById("est4").style.display = "none";
+                                document.getElementById("est5").style.display = "none";
+                                document.getElementById("est6").style.display = "none";
+                                document.getElementById("est7").style.display = "none";
+                                document.getElementById("est8").style.display = "none";
+                                document.getElementById("est9").style.display = "none";
+                                document.getElementById("est10").style.display = "none";
+                                
+                    }
+                    if(ubi == "15"){
+                                document.getElementById("santo").style.display = "inherit";
+                                document.getElementById("eloro").style.display = "none";
+                                document.getElementById("sucumbios").style.display = "none";
+                                document.getElementById("tungurahua").style.display = "none";
+                                document.getElementById("cañar").style.display = "none";
+                                document.getElementById("morona").style.display = "none";
+                                document.getElementById("orellana").style.display = "none";
+                                document.getElementById("pastaza").style.display = "none";
+                                document.getElementById("chimborazo").style.display = "none";
+                                document.getElementById("losrios").style.display = "none";
+                                document.getElementById("azuay").style.display = "none";
+                                document.getElementById("zamora").style.display = "none";
+                                document.getElementById("galapagos").style.display = "none";
+                                document.getElementById("santaelena").style.display = "none";
+                                document.getElementById("loja").style.display = "none";
+                                document.getElementById("manabi").style.display = "none";
+                                document.getElementById("guayas").style.display = "none";
+                                document.getElementById("napo").style.display = "none";
+                                document.getElementById("esmeraldas").style.display = "none";
+                                document.getElementById("carchi").style.display = "none";
+                                document.getElementById("pichincha").style.display = "none";
+                                document.getElementById("cotopaxi").style.display = "none";
+                                document.getElementById("imbabura").style.display = "none";
+                                document.getElementById("bolivar").style.display = "none";
+                                document.getElementById("2017").style.display = "none";
+                                document.getElementById("2018").style.display = "none";
+                                document.getElementById("est1").style.display = "none";
+                                document.getElementById("est2").style.display = "none";
+                                document.getElementById("est3").style.display = "none";
+                                document.getElementById("est4").style.display = "none";
+                                document.getElementById("est5").style.display = "none";
+                                document.getElementById("est6").style.display = "none";
+                                document.getElementById("est7").style.display = "none";
+                                document.getElementById("est8").style.display = "none";
+                                document.getElementById("est9").style.display = "none";
+                                document.getElementById("est10").style.display = "none";
+                                
+                    }
+                    if(ubi == "16"){
+                                document.getElementById("eloro").style.display = "inherit";
+                                document.getElementById("sucumbios").style.display = "none";
+                                document.getElementById("tungurahua").style.display = "none";
+                                document.getElementById("cañar").style.display = "none";
+                                document.getElementById("morona").style.display = "none";
+                                document.getElementById("orellana").style.display = "none";
+                                document.getElementById("pastaza").style.display = "none";
+                                document.getElementById("chimborazo").style.display = "none";
+                                document.getElementById("losrios").style.display = "none";
+                                document.getElementById("azuay").style.display = "none";
+                                document.getElementById("zamora").style.display = "none";
+                                document.getElementById("galapagos").style.display = "none";
+                                document.getElementById("santaelena").style.display = "none";
+                                document.getElementById("loja").style.display = "none";
+                                document.getElementById("manabi").style.display = "none";
+                                document.getElementById("guayas").style.display = "none";
+                                document.getElementById("napo").style.display = "none";
+                                document.getElementById("esmeraldas").style.display = "none";
+                                document.getElementById("carchi").style.display = "none";
+                                document.getElementById("pichincha").style.display = "none";
+                                document.getElementById("cotopaxi").style.display = "none";
+                                document.getElementById("imbabura").style.display = "none";
+                                document.getElementById("bolivar").style.display = "none";
+                                document.getElementById("santo").style.display = "none";
+                                document.getElementById("2017").style.display = "none";
+                                document.getElementById("2018").style.display = "none";
+                                document.getElementById("est1").style.display = "none";
+                                document.getElementById("est2").style.display = "none";
+                                document.getElementById("est3").style.display = "none";
+                                document.getElementById("est4").style.display = "none";
+                                document.getElementById("est5").style.display = "none";
+                                document.getElementById("est6").style.display = "none";
+                                document.getElementById("est7").style.display = "none";
+                                document.getElementById("est8").style.display = "none";
+                                document.getElementById("est9").style.display = "none";
+                                document.getElementById("est10").style.display = "none";
+                                
+                    }
+                    if(ubi == "17"){
+                                document.getElementById("sucumbios").style.display = "inherit";
+                                document.getElementById("tungurahua").style.display = "none";
+                                document.getElementById("cañar").style.display = "none";
+                                document.getElementById("morona").style.display = "none";
+                                document.getElementById("orellana").style.display = "none";
+                                document.getElementById("pastaza").style.display = "none";
+                                document.getElementById("chimborazo").style.display = "none";
+                                document.getElementById("losrios").style.display = "none";
+                                document.getElementById("azuay").style.display = "none";
+                                document.getElementById("zamora").style.display = "none";
+                                document.getElementById("galapagos").style.display = "none";
+                                document.getElementById("santaelena").style.display = "none";
+                                document.getElementById("loja").style.display = "none";
+                                document.getElementById("manabi").style.display = "none";
+                                document.getElementById("guayas").style.display = "none";
+                                document.getElementById("napo").style.display = "none";
+                                document.getElementById("esmeraldas").style.display = "none";
+                                document.getElementById("carchi").style.display = "none";
+                                document.getElementById("pichincha").style.display = "none";
+                                document.getElementById("cotopaxi").style.display = "none";
+                                document.getElementById("imbabura").style.display = "none";
+                                document.getElementById("bolivar").style.display = "none";
+                                document.getElementById("santo").style.display = "none";
+                                document.getElementById("eloro").style.display = "none";
+                                document.getElementById("2017").style.display = "none";
+                                document.getElementById("2018").style.display = "none";
+                                document.getElementById("est1").style.display = "none";
+                                document.getElementById("est2").style.display = "none";
+                                document.getElementById("est3").style.display = "none";
+                                document.getElementById("est4").style.display = "none";
+                                document.getElementById("est5").style.display = "none";
+                                document.getElementById("est6").style.display = "none";
+                                document.getElementById("est7").style.display = "none";
+                                document.getElementById("est8").style.display = "none";
+                                document.getElementById("est9").style.display = "none";
+                                document.getElementById("est10").style.display = "none";
+                                
+                    }
+                    if(ubi == "18"){
+                                document.getElementById("tungurahua").style.display = "inherit";
+                                document.getElementById("cañar").style.display = "none";
+                                document.getElementById("morona").style.display = "none";
+                                document.getElementById("orellana").style.display = "none";
+                                document.getElementById("pastaza").style.display = "none";
+                                document.getElementById("chimborazo").style.display = "none";
+                                document.getElementById("losrios").style.display = "none";
+                                document.getElementById("azuay").style.display = "none";
+                                document.getElementById("zamora").style.display = "none";
+                                document.getElementById("galapagos").style.display = "none";
+                                document.getElementById("santaelena").style.display = "none";
+                                document.getElementById("loja").style.display = "none";
+                                document.getElementById("manabi").style.display = "none";
+                                document.getElementById("guayas").style.display = "none";
+                                document.getElementById("napo").style.display = "none";
+                                document.getElementById("esmeraldas").style.display = "none";
+                                document.getElementById("carchi").style.display = "none";
+                                document.getElementById("pichincha").style.display = "none";
+                                document.getElementById("cotopaxi").style.display = "none";
+                                document.getElementById("imbabura").style.display = "none";
+                                document.getElementById("bolivar").style.display = "none";
+                                document.getElementById("santo").style.display = "none";
+                                document.getElementById("eloro").style.display = "none";
+                                document.getElementById("sucumbios").style.display = "none";
+                                document.getElementById("2017").style.display = "none";
+                                document.getElementById("2018").style.display = "none";
+                                document.getElementById("est1").style.display = "none";
+                                document.getElementById("est2").style.display = "none";
+                                document.getElementById("est3").style.display = "none";
+                                document.getElementById("est4").style.display = "none";
+                                document.getElementById("est5").style.display = "none";
+                                document.getElementById("est6").style.display = "none";
+                                document.getElementById("est7").style.display = "none";
+                                document.getElementById("est8").style.display = "none";
+                                document.getElementById("est9").style.display = "none";
+                                document.getElementById("est10").style.display = "none";
+                                
+                    }
+                    if(ubi == "19"){
+                                document.getElementById("cañar").style.display = "inherit";
+                                document.getElementById("morona").style.display = "none";
+                                document.getElementById("orellana").style.display = "none";
+                                document.getElementById("pastaza").style.display = "none";
+                                document.getElementById("chimborazo").style.display = "none";
+                                document.getElementById("losrios").style.display = "none";
+                                document.getElementById("azuay").style.display = "none";
+                                document.getElementById("zamora").style.display = "none";
+                                document.getElementById("galapagos").style.display = "none";
+                                document.getElementById("santaelena").style.display = "none";
+                                document.getElementById("loja").style.display = "none";
+                                document.getElementById("manabi").style.display = "none";
+                                document.getElementById("guayas").style.display = "none";
+                                document.getElementById("napo").style.display = "none";
+                                document.getElementById("esmeraldas").style.display = "none";
+                                document.getElementById("carchi").style.display = "none";
+                                document.getElementById("pichincha").style.display = "none";
+                                document.getElementById("cotopaxi").style.display = "none";
+                                document.getElementById("imbabura").style.display = "none";
+                                document.getElementById("bolivar").style.display = "none";
+                                document.getElementById("santo").style.display = "none";
+                                document.getElementById("eloro").style.display = "none";
+                                document.getElementById("sucumbios").style.display = "none";
+                                document.getElementById("tungurahua").style.display = "none";
+                                document.getElementById("2017").style.display = "none";
+                                document.getElementById("2018").style.display = "none";
+                                document.getElementById("est1").style.display = "none";
+                                document.getElementById("est2").style.display = "none";
+                                document.getElementById("est3").style.display = "none";
+                                document.getElementById("est4").style.display = "none";
+                                document.getElementById("est5").style.display = "none";
+                                document.getElementById("est6").style.display = "none";
+                                document.getElementById("est7").style.display = "none";
+                                document.getElementById("est8").style.display = "none";
+                                document.getElementById("est9").style.display = "none";
+                                document.getElementById("est10").style.display = "none";
+                                
+                    }
+                    if(ubi == "20"){
+                                document.getElementById("morona").style.display = "inherit";
+                                document.getElementById("orellana").style.display = "none";
+                                document.getElementById("pastaza").style.display = "none";
+                                document.getElementById("chimborazo").style.display = "none";
+                                document.getElementById("losrios").style.display = "none";
+                                document.getElementById("azuay").style.display = "none";
+                                document.getElementById("zamora").style.display = "none";
+                                document.getElementById("galapagos").style.display = "none";
+                                document.getElementById("santaelena").style.display = "none";
+                                document.getElementById("loja").style.display = "none";
+                                document.getElementById("manabi").style.display = "none";
+                                document.getElementById("guayas").style.display = "none";
+                                document.getElementById("napo").style.display = "none";
+                                document.getElementById("esmeraldas").style.display = "none";
+                                document.getElementById("carchi").style.display = "none";
+                                document.getElementById("pichincha").style.display = "none";
+                                document.getElementById("cotopaxi").style.display = "none";
+                                document.getElementById("imbabura").style.display = "none";
+                                document.getElementById("bolivar").style.display = "none";
+                                document.getElementById("santo").style.display = "none";
+                                document.getElementById("eloro").style.display = "none";
+                                document.getElementById("sucumbios").style.display = "none";
+                                document.getElementById("tungurahua").style.display = "none";
+                                document.getElementById("cañar").style.display = "none";
+                                document.getElementById("2017").style.display = "none";
+                                document.getElementById("2018").style.display = "none";
+                                document.getElementById("est1").style.display = "none";
+                                document.getElementById("est2").style.display = "none";
+                                document.getElementById("est3").style.display = "none";
+                                document.getElementById("est4").style.display = "none";
+                                document.getElementById("est5").style.display = "none";
+                                document.getElementById("est6").style.display = "none";
+                                document.getElementById("est7").style.display = "none";
+                                document.getElementById("est8").style.display = "none";
+                                document.getElementById("est9").style.display = "none";
+                                document.getElementById("est10").style.display = "none";
+                                
+                        
+                    }
+                    if(ubi == "21"){
+                                document.getElementById("orellana").style.display = "inherit";
+                                document.getElementById("pastaza").style.display = "none";
+                                document.getElementById("chimborazo").style.display = "none";
+                                document.getElementById("losrios").style.display = "none";
+                                document.getElementById("azuay").style.display = "none";
+                                document.getElementById("zamora").style.display = "none";
+                                document.getElementById("galapagos").style.display = "none";
+                                document.getElementById("santaelena").style.display = "none";
+                                document.getElementById("loja").style.display = "none";
+                                document.getElementById("manabi").style.display = "none";
+                                document.getElementById("guayas").style.display = "none";
+                                document.getElementById("napo").style.display = "none";
+                                document.getElementById("esmeraldas").style.display = "none";
+                                document.getElementById("carchi").style.display = "none";
+                                document.getElementById("pichincha").style.display = "none";
+                                document.getElementById("cotopaxi").style.display = "none";
+                                document.getElementById("imbabura").style.display = "none";
+                                document.getElementById("bolivar").style.display = "none";
+                                document.getElementById("santo").style.display = "none";
+                                document.getElementById("eloro").style.display = "none";
+                                document.getElementById("sucumbios").style.display = "none";
+                                document.getElementById("tungurahua").style.display = "none";
+                                document.getElementById("cañar").style.display = "none";
+                                document.getElementById("morona").style.display = "none";
+                                document.getElementById("2017").style.display = "none";
+                                document.getElementById("2018").style.display = "none";
+                                document.getElementById("est1").style.display = "none";
+                                document.getElementById("est2").style.display = "none";
+                                document.getElementById("est3").style.display = "none";
+                                document.getElementById("est4").style.display = "none";
+                                document.getElementById("est5").style.display = "none";
+                                document.getElementById("est6").style.display = "none";
+                                document.getElementById("est7").style.display = "none";
+                                document.getElementById("est8").style.display = "none";
+                                document.getElementById("est9").style.display = "none";
+                                document.getElementById("est10").style.display = "none";
+                                
+                    }
+                    if(ubi == "22"){
+                                document.getElementById("pastaza").style.display = "inherit";
+                                document.getElementById("chimborazo").style.display = "none";
+                                document.getElementById("losrios").style.display = "none";
+                                document.getElementById("azuay").style.display = "none";
+                                document.getElementById("zamora").style.display = "none";
+                                document.getElementById("galapagos").style.display = "none";
+                                document.getElementById("santaelena").style.display = "none";
+                                document.getElementById("loja").style.display = "none";
+                                document.getElementById("manabi").style.display = "none";
+                                document.getElementById("guayas").style.display = "none";
+                                document.getElementById("napo").style.display = "none";
+                                document.getElementById("esmeraldas").style.display = "none";
+                                document.getElementById("carchi").style.display = "none";
+                                document.getElementById("pichincha").style.display = "none";
+                                document.getElementById("cotopaxi").style.display = "none";
+                                document.getElementById("imbabura").style.display = "none";
+                                document.getElementById("bolivar").style.display = "none";
+                                document.getElementById("santo").style.display = "none";
+                                document.getElementById("eloro").style.display = "none";
+                                document.getElementById("sucumbios").style.display = "none";
+                                document.getElementById("tungurahua").style.display = "none";
+                                document.getElementById("cañar").style.display = "none";
+                                document.getElementById("morona").style.display = "none";
+                                document.getElementById("orellana").style.display = "none";
+                                document.getElementById("2017").style.display = "none";
+                                document.getElementById("2018").style.display = "none";
+                                document.getElementById("est1").style.display = "none";
+                                document.getElementById("est2").style.display = "none";
+                                document.getElementById("est3").style.display = "none";
+                                document.getElementById("est4").style.display = "none";
+                                document.getElementById("est5").style.display = "none";
+                                document.getElementById("est6").style.display = "none";
+                                document.getElementById("est7").style.display = "none";
+                                document.getElementById("est8").style.display = "none";
+                                document.getElementById("est9").style.display = "none";
+                                document.getElementById("est10").style.display = "none";
+                                
+                    }
+                    if(ubi == "23"){
+                                document.getElementById("chimborazo").style.display = "inherit";
+                                document.getElementById("losrios").style.display = "none";
+                                document.getElementById("azuay").style.display = "none";
+                                document.getElementById("zamora").style.display = "none";
+                                document.getElementById("galapagos").style.display = "none";
+                                document.getElementById("santaelena").style.display = "none";
+                                document.getElementById("loja").style.display = "none";
+                                document.getElementById("manabi").style.display = "none";
+                                document.getElementById("guayas").style.display = "none";
+                                document.getElementById("napo").style.display = "none";
+                                document.getElementById("esmeraldas").style.display = "none";
+                                document.getElementById("carchi").style.display = "none";
+                                document.getElementById("pichincha").style.display = "none";
+                                document.getElementById("cotopaxi").style.display = "none";
+                                document.getElementById("imbabura").style.display = "none";
+                                document.getElementById("bolivar").style.display = "none";
+                                document.getElementById("santo").style.display = "none";
+                                document.getElementById("eloro").style.display = "none";
+                                document.getElementById("sucumbios").style.display = "none";
+                                document.getElementById("tungurahua").style.display = "none";
+                                document.getElementById("cañar").style.display = "none";
+                                document.getElementById("morona").style.display = "none";
+                                document.getElementById("orellana").style.display = "none";
+                                document.getElementById("pastaza").style.display = "none";
+                                document.getElementById("2017").style.display = "none";
+                                document.getElementById("2018").style.display = "none";
+                                document.getElementById("est1").style.display = "none";
+                                document.getElementById("est2").style.display = "none";
+                                document.getElementById("est3").style.display = "none";
+                                document.getElementById("est4").style.display = "none";
+                                document.getElementById("est5").style.display = "none";
+                                document.getElementById("est6").style.display = "none";
+                                document.getElementById("est7").style.display = "none";
+                                document.getElementById("est8").style.display = "none";
+                                document.getElementById("est9").style.display = "none";
+                                document.getElementById("est10").style.display = "none";
+                                
+                    }
+                    if(ubi == "24"){
+                                document.getElementById("losrios").style.display = "inherit";
+                                document.getElementById("azuay").style.display = "none";
+                                document.getElementById("zamora").style.display = "none";
+                                document.getElementById("galapagos").style.display = "none";
+                                document.getElementById("santaelena").style.display = "none";
+                                document.getElementById("loja").style.display = "none";
+                                document.getElementById("manabi").style.display = "none";
+                                document.getElementById("guayas").style.display = "none";
+                                document.getElementById("napo").style.display = "none";
+                                document.getElementById("esmeraldas").style.display = "none";
+                                document.getElementById("carchi").style.display = "none";
+                                document.getElementById("pichincha").style.display = "none";
+                                document.getElementById("cotopaxi").style.display = "none";
+                                document.getElementById("imbabura").style.display = "none";
+                                document.getElementById("bolivar").style.display = "none";
+                                document.getElementById("santo").style.display = "none";
+                                document.getElementById("eloro").style.display = "none";
+                                document.getElementById("sucumbios").style.display = "none";
+                                document.getElementById("tungurahua").style.display = "none";
+                                document.getElementById("cañar").style.display = "none";
+                                document.getElementById("morona").style.display = "none";
+                                document.getElementById("orellana").style.display = "none";
+                                document.getElementById("pastaza").style.display = "none";
+                                document.getElementById("chimborazo").style.display = "none";
+                                document.getElementById("2017").style.display = "none";
+                                document.getElementById("2018").style.display = "none";
+                                document.getElementById("est1").style.display = "none";
+                                document.getElementById("est2").style.display = "none";
+                                document.getElementById("est3").style.display = "none";
+                                document.getElementById("est4").style.display = "none";
+                                document.getElementById("est5").style.display = "none";
+                                document.getElementById("est6").style.display = "none";
+                                document.getElementById("est7").style.display = "none";
+                                document.getElementById("est8").style.display = "none";
+                                document.getElementById("est9").style.display = "none";
+                                document.getElementById("est10").style.display = "none";
+                                
+                    }
+    
+    
+    }
+
+            	function anios() {
+			
+			
+			var anio = document.getElementById("aniosqt").value;
+			if (anio == "2017") {
+				document.getElementById("2017").style.display = "inherit";
+                                document.getElementById("2018").style.display = "none";
+                                document.getElementById("est1").style.display = "none";
+                                document.getElementById("est2").style.display = "none";
+                                document.getElementById("est3").style.display = "none";
+                                document.getElementById("est4").style.display = "none";
+                                document.getElementById("est5").style.display = "none";
+                                document.getElementById("est6").style.display = "none";
+                                document.getElementById("est7").style.display = "none";
+                                document.getElementById("est8").style.display = "none";
+                                document.getElementById("est9").style.display = "none";
+                                document.getElementById("est10").style.display = "none";
+                                document.getElementById("azuay").style.display = "none";
+                                document.getElementById("zamora").style.display = "none";
+                                document.getElementById("galapagos").style.display = "none";
+                                document.getElementById("santaelena").style.display = "none";
+                                document.getElementById("loja").style.display = "none";
+                                document.getElementById("manabi").style.display = "none";
+                                document.getElementById("guayas").style.display = "none";
+                                document.getElementById("napo").style.display = "none";
+                                document.getElementById("esmeraldas").style.display = "none";
+                                document.getElementById("carchi").style.display = "none";
+                                document.getElementById("pichincha").style.display = "none";
+                                document.getElementById("cotopaxi").style.display = "none";
+                                document.getElementById("imbabura").style.display = "none";
+                                document.getElementById("bolivar").style.display = "none";
+                                document.getElementById("santo").style.display = "none";
+                                document.getElementById("eloro").style.display = "none";
+                                document.getElementById("sucumbios").style.display = "none";
+                                document.getElementById("tungurahua").style.display = "none";
+                                document.getElementById("cañar").style.display = "none";
+                                document.getElementById("morona").style.display = "none";
+                                document.getElementById("orellana").style.display = "none";
+                                document.getElementById("pastaza").style.display = "none";
+                                document.getElementById("chimborazo").style.display = "none";
+                                document.getElementById("losrios").style.display = "none";
+                               
+				}
+			if (anio == "2018") {
+				document.getElementById("2017").style.display = "none";
+                                document.getElementById("2018").style.display = "inherit";
+                                 document.getElementById("est1").style.display = "none";
+                                document.getElementById("est2").style.display = "none";
+                                document.getElementById("est3").style.display = "none";
+                                document.getElementById("est4").style.display = "none";
+                                document.getElementById("est5").style.display = "none";
+                                document.getElementById("est6").style.display = "none";
+                                document.getElementById("est7").style.display = "none";
+                                document.getElementById("est8").style.display = "none";
+                                document.getElementById("est9").style.display = "none";
+                                document.getElementById("est10").style.display = "none";
+                                document.getElementById("azuay").style.display = "none";
+                                document.getElementById("zamora").style.display = "none";
+                                document.getElementById("galapagos").style.display = "none";
+                                document.getElementById("santaelena").style.display = "none";
+                                document.getElementById("loja").style.display = "none";
+                                document.getElementById("manabi").style.display = "none";
+                                document.getElementById("guayas").style.display = "none";
+                                document.getElementById("napo").style.display = "none";
+                                document.getElementById("esmeraldas").style.display = "none";
+                                document.getElementById("carchi").style.display = "none";
+                                document.getElementById("pichincha").style.display = "none";
+                                document.getElementById("cotopaxi").style.display = "none";
+                                document.getElementById("imbabura").style.display = "none";
+                                document.getElementById("bolivar").style.display = "none";
+                                document.getElementById("santo").style.display = "none";
+                                document.getElementById("eloro").style.display = "none";
+                                document.getElementById("sucumbios").style.display = "none";
+                                document.getElementById("tungurahua").style.display = "none";
+                                document.getElementById("cañar").style.display = "none";
+                                document.getElementById("morona").style.display = "none";
+                                document.getElementById("orellana").style.display = "none";
+                                document.getElementById("pastaza").style.display = "none";
+                                document.getElementById("chimborazo").style.display = "none";
+                                document.getElementById("losrios").style.display = "none";
+                               
+                                
+				}
+			
+
+		};
+                
+
+                function establecimiento() {
+			
+			
+			var es = document.getElementById("cmbestablecimiento").value;
+			if (es == "1") {
+                                document.getElementById("est1").style.display = "inherit";
+                                document.getElementById("est2").style.display = "none";
+                                document.getElementById("est3").style.display = "none";
+                                document.getElementById("est4").style.display = "none";
+                                document.getElementById("est5").style.display = "none";
+                                document.getElementById("est6").style.display = "none";
+                                document.getElementById("est7").style.display = "none";
+                                document.getElementById("est8").style.display = "none";
+                                document.getElementById("est9").style.display = "none";
+                                document.getElementById("est10").style.display = "none";
+				document.getElementById("2017").style.display = "none";
+                                document.getElementById("2018").style.display = "none";
+                                document.getElementById("azuay").style.display = "none";
+                                document.getElementById("zamora").style.display = "none";
+                                document.getElementById("galapagos").style.display = "none";
+                                document.getElementById("santaelena").style.display = "none";
+                                document.getElementById("loja").style.display = "none";
+                                document.getElementById("manabi").style.display = "none";
+                                document.getElementById("guayas").style.display = "none";
+                                document.getElementById("napo").style.display = "none";
+                                document.getElementById("esmeraldas").style.display = "none";
+                                document.getElementById("carchi").style.display = "none";
+                                document.getElementById("pichincha").style.display = "none";
+                                document.getElementById("cotopaxi").style.display = "none";
+                                document.getElementById("imbabura").style.display = "none";
+                                document.getElementById("bolivar").style.display = "none";
+                                document.getElementById("santo").style.display = "none";
+                                document.getElementById("eloro").style.display = "none";
+                                document.getElementById("sucumbios").style.display = "none";
+                                document.getElementById("tungurahua").style.display = "none";
+                                document.getElementById("cañar").style.display = "none";
+                                document.getElementById("morona").style.display = "none";
+                                document.getElementById("orellana").style.display = "none";
+                                document.getElementById("pastaza").style.display = "none";
+                                document.getElementById("chimborazo").style.display = "none";
+                                document.getElementById("losrios").style.display = "none";
+                                document.getElementById("vs").style.display = "none";
+                                
+				}
+			if (es == "2") {
+				document.getElementById("est1").style.display = "none";
+                                document.getElementById("est2").style.display = "inherit";
+                                document.getElementById("est3").style.display = "none";
+                                document.getElementById("est4").style.display = "none";
+                                document.getElementById("est5").style.display = "none";
+                                document.getElementById("est6").style.display = "none";
+                                document.getElementById("est7").style.display = "none";
+                                document.getElementById("est8").style.display = "none";
+                                document.getElementById("est9").style.display = "none";
+                                document.getElementById("est10").style.display = "none";
+                                document.getElementById("2017").style.display = "none";
+                                document.getElementById("2018").style.display = "none";
+                                document.getElementById("azuay").style.display = "none";
+                                document.getElementById("zamora").style.display = "none";
+                                document.getElementById("galapagos").style.display = "none";
+                                document.getElementById("santaelena").style.display = "none";
+                                document.getElementById("loja").style.display = "none";
+                                document.getElementById("manabi").style.display = "none";
+                                document.getElementById("guayas").style.display = "none";
+                                document.getElementById("napo").style.display = "none";
+                                document.getElementById("esmeraldas").style.display = "none";
+                                document.getElementById("carchi").style.display = "none";
+                                document.getElementById("pichincha").style.display = "none";
+                                document.getElementById("cotopaxi").style.display = "none";
+                                document.getElementById("imbabura").style.display = "none";
+                                document.getElementById("bolivar").style.display = "none";
+                                document.getElementById("santo").style.display = "none";
+                                document.getElementById("eloro").style.display = "none";
+                                document.getElementById("sucumbios").style.display = "none";
+                                document.getElementById("tungurahua").style.display = "none";
+                                document.getElementById("cañar").style.display = "none";
+                                document.getElementById("morona").style.display = "none";
+                                document.getElementById("orellana").style.display = "none";
+                                document.getElementById("pastaza").style.display = "none";
+                                document.getElementById("chimborazo").style.display = "none";
+                                document.getElementById("losrios").style.display = "none";
+                                document.getElementById("vs").style.display = "none";
+                                
+                                
+				}
+                        if (es == "3") {
+                                document.getElementById("est1").style.display = "none";
+                                document.getElementById("est2").style.display = "none";
+                                document.getElementById("est3").style.display = "inherit";
+                                document.getElementById("est4").style.display = "none";
+                                document.getElementById("est5").style.display = "none";
+                                document.getElementById("est6").style.display = "none";
+                                document.getElementById("est7").style.display = "none";
+                                document.getElementById("est8").style.display = "none";
+                                document.getElementById("est9").style.display = "none";
+                                document.getElementById("est10").style.display = "none";
+                                document.getElementById("2017").style.display = "none";
+                                document.getElementById("2018").style.display = "none";
+                                document.getElementById("azuay").style.display = "none";
+                                document.getElementById("zamora").style.display = "none";
+                                document.getElementById("galapagos").style.display = "none";
+                                document.getElementById("santaelena").style.display = "none";
+                                document.getElementById("loja").style.display = "none";
+                                document.getElementById("manabi").style.display = "none";
+                                document.getElementById("guayas").style.display = "none";
+                                document.getElementById("napo").style.display = "none";
+                                document.getElementById("esmeraldas").style.display = "none";
+                                document.getElementById("carchi").style.display = "none";
+                                document.getElementById("pichincha").style.display = "none";
+                                document.getElementById("cotopaxi").style.display = "none";
+                                document.getElementById("imbabura").style.display = "none";
+                                document.getElementById("bolivar").style.display = "none";
+                                document.getElementById("santo").style.display = "none";
+                                document.getElementById("eloro").style.display = "none";
+                                document.getElementById("sucumbios").style.display = "none";
+                                document.getElementById("tungurahua").style.display = "none";
+                                document.getElementById("cañar").style.display = "none";
+                                document.getElementById("morona").style.display = "none";
+                                document.getElementById("orellana").style.display = "none";
+                                document.getElementById("pastaza").style.display = "none";
+                                document.getElementById("chimborazo").style.display = "none";
+                                document.getElementById("losrios").style.display = "none";
+                                document.getElementById("vs").style.display = "none";
+                                
+				
+                                
+				}
+                                if(es == "4"){
+                                document.getElementById("est1").style.display = "none";
+                                document.getElementById("est2").style.display = "none";
+                                document.getElementById("est3").style.display = "none";
+                                document.getElementById("est4").style.display = "inherit";
+                                document.getElementById("est5").style.display = "none";
+                                document.getElementById("est6").style.display = "none";
+                                document.getElementById("est7").style.display = "none";
+                                document.getElementById("est8").style.display = "none";
+                                document.getElementById("est9").style.display = "none";
+                                document.getElementById("est10").style.display = "none";
+                                document.getElementById("2017").style.display = "none";
+                                document.getElementById("2018").style.display = "none";
+                                document.getElementById("azuay").style.display = "none";
+                                document.getElementById("zamora").style.display = "none";
+                                document.getElementById("galapagos").style.display = "none";
+                                document.getElementById("santaelena").style.display = "none";
+                                document.getElementById("loja").style.display = "none";
+                                document.getElementById("manabi").style.display = "none";
+                                document.getElementById("guayas").style.display = "none";
+                                document.getElementById("napo").style.display = "none";
+                                document.getElementById("esmeraldas").style.display = "none";
+                                document.getElementById("carchi").style.display = "none";
+                                document.getElementById("pichincha").style.display = "none";
+                                document.getElementById("cotopaxi").style.display = "none";
+                                document.getElementById("imbabura").style.display = "none";
+                                document.getElementById("bolivar").style.display = "none";
+                                document.getElementById("santo").style.display = "none";
+                                document.getElementById("eloro").style.display = "none";
+                                document.getElementById("sucumbios").style.display = "none";
+                                document.getElementById("tungurahua").style.display = "none";
+                                document.getElementById("cañar").style.display = "none";
+                                document.getElementById("morona").style.display = "none";
+                                document.getElementById("orellana").style.display = "none";
+                                document.getElementById("pastaza").style.display = "none";
+                                document.getElementById("chimborazo").style.display = "none";
+                                document.getElementById("losrios").style.display = "none";
+                                document.getElementById("vs").style.display = "none";
+                                
+                                    
+                                }
+                                if(es == "5"){
+                                document.getElementById("est1").style.display = "none";
+                                document.getElementById("est2").style.display = "none";
+                                document.getElementById("est3").style.display = "none";
+                                document.getElementById("est4").style.display = "none";
+                                document.getElementById("est5").style.display = "inherit";
+                                document.getElementById("est6").style.display = "none";
+                                document.getElementById("est7").style.display = "none";
+                                document.getElementById("est8").style.display = "none";
+                                document.getElementById("est9").style.display = "none";
+                                document.getElementById("est10").style.display = "none";
+                                document.getElementById("2017").style.display = "none";
+                                document.getElementById("2018").style.display = "none";
+                                document.getElementById("azuay").style.display = "none";
+                                document.getElementById("zamora").style.display = "none";
+                                document.getElementById("galapagos").style.display = "none";
+                                document.getElementById("santaelena").style.display = "none";
+                                document.getElementById("loja").style.display = "none";
+                                document.getElementById("manabi").style.display = "none";
+                                document.getElementById("guayas").style.display = "none";
+                                document.getElementById("napo").style.display = "none";
+                                document.getElementById("esmeraldas").style.display = "none";
+                                document.getElementById("carchi").style.display = "none";
+                                document.getElementById("pichincha").style.display = "none";
+                                document.getElementById("cotopaxi").style.display = "none";
+                                document.getElementById("imbabura").style.display = "none";
+                                document.getElementById("bolivar").style.display = "none";
+                                document.getElementById("santo").style.display = "none";
+                                document.getElementById("eloro").style.display = "none";
+                                document.getElementById("sucumbios").style.display = "none";
+                                document.getElementById("tungurahua").style.display = "none";
+                                document.getElementById("cañar").style.display = "none";
+                                document.getElementById("morona").style.display = "none";
+                                document.getElementById("orellana").style.display = "none";
+                                document.getElementById("pastaza").style.display = "none";
+                                document.getElementById("chimborazo").style.display = "none";
+                                document.getElementById("losrios").style.display = "none";
+                                document.getElementById("vs").style.display = "none";
+                                
+                                    
+                                }
+                                if(es == "6"){
+                                document.getElementById("est1").style.display = "none";
+                                document.getElementById("est2").style.display = "none";
+                                document.getElementById("est3").style.display = "none";
+                                document.getElementById("est4").style.display = "none";
+                                document.getElementById("est5").style.display = "none";
+                                document.getElementById("est6").style.display = "inherit";
+                                document.getElementById("est7").style.display = "none";
+                                document.getElementById("est8").style.display = "none";
+                                document.getElementById("est9").style.display = "none";
+                                document.getElementById("est10").style.display = "none";
+                                document.getElementById("2017").style.display = "none";
+                                document.getElementById("2018").style.display = "none";
+                                document.getElementById("azuay").style.display = "none";
+                                document.getElementById("zamora").style.display = "none";
+                                document.getElementById("galapagos").style.display = "none";
+                                document.getElementById("santaelena").style.display = "none";
+                                document.getElementById("loja").style.display = "none";
+                                document.getElementById("manabi").style.display = "none";
+                                document.getElementById("guayas").style.display = "none";
+                                document.getElementById("napo").style.display = "none";
+                                document.getElementById("esmeraldas").style.display = "none";
+                                document.getElementById("carchi").style.display = "none";
+                                document.getElementById("pichincha").style.display = "none";
+                                document.getElementById("cotopaxi").style.display = "none";
+                                document.getElementById("imbabura").style.display = "none";
+                                document.getElementById("bolivar").style.display = "none";
+                                document.getElementById("santo").style.display = "none";
+                                document.getElementById("eloro").style.display = "none";
+                                document.getElementById("sucumbios").style.display = "none";
+                                document.getElementById("tungurahua").style.display = "none";
+                                document.getElementById("cañar").style.display = "none";
+                                document.getElementById("morona").style.display = "none";
+                                document.getElementById("orellana").style.display = "none";
+                                document.getElementById("pastaza").style.display = "none";
+                                document.getElementById("chimborazo").style.display = "none";
+                                document.getElementById("losrios").style.display = "none";
+                                document.getElementById("vs").style.display = "none";
+                                }
+                                if(es == "7"){
+                                document.getElementById("est1").style.display = "none";
+                                document.getElementById("est2").style.display = "none";
+                                document.getElementById("est3").style.display = "none";
+                                document.getElementById("est4").style.display = "none";
+                                document.getElementById("est5").style.display = "none";
+                                document.getElementById("est6").style.display = "none";
+                                document.getElementById("est7").style.display = "inherit";
+                                document.getElementById("est8").style.display = "none";
+                                document.getElementById("est9").style.display = "none";
+                                document.getElementById("est10").style.display = "none";
+                                document.getElementById("2017").style.display = "none";
+                                document.getElementById("2018").style.display = "none";
+                                document.getElementById("azuay").style.display = "none";
+                                document.getElementById("zamora").style.display = "none";
+                                document.getElementById("galapagos").style.display = "none";
+                                document.getElementById("santaelena").style.display = "none";
+                                document.getElementById("loja").style.display = "none";
+                                document.getElementById("manabi").style.display = "none";
+                                document.getElementById("guayas").style.display = "none";
+                                document.getElementById("napo").style.display = "none";
+                                document.getElementById("esmeraldas").style.display = "none";
+                                document.getElementById("carchi").style.display = "none";
+                                document.getElementById("pichincha").style.display = "none";
+                                document.getElementById("cotopaxi").style.display = "none";
+                                document.getElementById("imbabura").style.display = "none";
+                                document.getElementById("bolivar").style.display = "none";
+                                document.getElementById("santo").style.display = "none";
+                                document.getElementById("eloro").style.display = "none";
+                                document.getElementById("sucumbios").style.display = "none";
+                                document.getElementById("tungurahua").style.display = "none";
+                                document.getElementById("cañar").style.display = "none";
+                                document.getElementById("morona").style.display = "none";
+                                document.getElementById("orellana").style.display = "none";
+                                document.getElementById("pastaza").style.display = "none";
+                                document.getElementById("chimborazo").style.display = "none";
+                                document.getElementById("losrios").style.display = "none";
+                                document.getElementById("vs").style.display = "none";
+                                
+                                    
+                                }
+                                if(es == "8"){
+                                document.getElementById("est1").style.display = "none";
+                                document.getElementById("est2").style.display = "none";
+                                document.getElementById("est3").style.display = "none";
+                                document.getElementById("est4").style.display = "none";
+                                document.getElementById("est5").style.display = "none";
+                                document.getElementById("est6").style.display = "none";
+                                document.getElementById("est7").style.display = "none";
+                                document.getElementById("est8").style.display = "inherit";
+                                document.getElementById("est9").style.display = "none";
+                                document.getElementById("est10").style.display = "none";
+                                document.getElementById("2017").style.display = "none";
+                                document.getElementById("2018").style.display = "none";
+                                document.getElementById("azuay").style.display = "none";
+                                document.getElementById("zamora").style.display = "none";
+                                document.getElementById("galapagos").style.display = "none";
+                                document.getElementById("santaelena").style.display = "none";
+                                document.getElementById("loja").style.display = "none";
+                                document.getElementById("manabi").style.display = "none";
+                                document.getElementById("guayas").style.display = "none";
+                                document.getElementById("napo").style.display = "none";
+                                document.getElementById("esmeraldas").style.display = "none";
+                                document.getElementById("carchi").style.display = "none";
+                                document.getElementById("pichincha").style.display = "none";
+                                document.getElementById("cotopaxi").style.display = "none";
+                                document.getElementById("imbabura").style.display = "none";
+                                document.getElementById("bolivar").style.display = "none";
+                                document.getElementById("santo").style.display = "none";
+                                document.getElementById("eloro").style.display = "none";
+                                document.getElementById("sucumbios").style.display = "none";
+                                document.getElementById("tungurahua").style.display = "none";
+                                document.getElementById("cañar").style.display = "none";
+                                document.getElementById("morona").style.display = "none";
+                                document.getElementById("orellana").style.display = "none";
+                                document.getElementById("pastaza").style.display = "none";
+                                document.getElementById("chimborazo").style.display = "none";
+                                document.getElementById("losrios").style.display = "none";
+                                document.getElementById("vs").style.display = "none";
+                                
+                                    
+                                }
+                                if(es == "9"){
+                                document.getElementById("est1").style.display = "none";
+                                document.getElementById("est2").style.display = "none";
+                                document.getElementById("est3").style.display = "none";
+                                document.getElementById("est4").style.display = "none";
+                                document.getElementById("est5").style.display = "none";
+                                document.getElementById("est6").style.display = "none";
+                                document.getElementById("est7").style.display = "none";
+                                document.getElementById("est8").style.display = "none";
+                                document.getElementById("est9").style.display = "inherit";
+                                document.getElementById("est10").style.display = "none";
+                                document.getElementById("2017").style.display = "none";
+                                document.getElementById("2018").style.display = "none";
+                                document.getElementById("azuay").style.display = "none";
+                                document.getElementById("zamora").style.display = "none";
+                                document.getElementById("galapagos").style.display = "none";
+                                document.getElementById("santaelena").style.display = "none";
+                                document.getElementById("loja").style.display = "none";
+                                document.getElementById("manabi").style.display = "none";
+                                document.getElementById("guayas").style.display = "none";
+                                document.getElementById("napo").style.display = "none";
+                                document.getElementById("esmeraldas").style.display = "none";
+                                document.getElementById("carchi").style.display = "none";
+                                document.getElementById("pichincha").style.display = "none";
+                                document.getElementById("cotopaxi").style.display = "none";
+                                document.getElementById("imbabura").style.display = "none";
+                                document.getElementById("bolivar").style.display = "none";
+                                document.getElementById("santo").style.display = "none";
+                                document.getElementById("eloro").style.display = "none";
+                                document.getElementById("sucumbios").style.display = "none";
+                                document.getElementById("tungurahua").style.display = "none";
+                                document.getElementById("cañar").style.display = "none";
+                                document.getElementById("morona").style.display = "none";
+                                document.getElementById("orellana").style.display = "none";
+                                document.getElementById("pastaza").style.display = "none";
+                                document.getElementById("chimborazo").style.display = "none";
+                                document.getElementById("losrios").style.display = "none";
+                                document.getElementById("vs").style.display = "none";
+                                
+                                    
+                                }
+                                if(es == "10"){
+                                document.getElementById("est1").style.display = "none";
+                                document.getElementById("est2").style.display = "none";
+                                document.getElementById("est3").style.display = "none";
+                                document.getElementById("est4").style.display = "none";
+                                document.getElementById("est5").style.display = "none";
+                                document.getElementById("est6").style.display = "none";
+                                document.getElementById("est7").style.display = "none";
+                                document.getElementById("est8").style.display = "none";
+                                document.getElementById("est9").style.display = "none";
+                                document.getElementById("est10").style.display = "inherit";
+                                document.getElementById("2017").style.display = "none";
+                                document.getElementById("2018").style.display = "none";
+                                document.getElementById("azuay").style.display = "none";
+                                document.getElementById("zamora").style.display = "none";
+                                document.getElementById("galapagos").style.display = "none";
+                                document.getElementById("santaelena").style.display = "none";
+                                document.getElementById("loja").style.display = "none";
+                                document.getElementById("manabi").style.display = "none";
+                                document.getElementById("guayas").style.display = "none";
+                                document.getElementById("napo").style.display = "none";
+                                document.getElementById("esmeraldas").style.display = "none";
+                                document.getElementById("carchi").style.display = "none";
+                                document.getElementById("pichincha").style.display = "none";
+                                document.getElementById("cotopaxi").style.display = "none";
+                                document.getElementById("imbabura").style.display = "none";
+                                document.getElementById("bolivar").style.display = "none";
+                                document.getElementById("santo").style.display = "none";
+                                document.getElementById("eloro").style.display = "none";
+                                document.getElementById("sucumbios").style.display = "none";
+                                document.getElementById("tungurahua").style.display = "none";
+                                document.getElementById("cañar").style.display = "none";
+                                document.getElementById("morona").style.display = "none";
+                                document.getElementById("orellana").style.display = "none";
+                                document.getElementById("pastaza").style.display = "none";
+                                document.getElementById("chimborazo").style.display = "none";
+                                document.getElementById("losrios").style.display = "none";
+                                document.getElementById("vs").style.display = "none";
+                                
+                                }
+                                
+    
+    }
+	
+
+          
+            
+                </script>
             </ui:define>
 
         </ui:composition>
 
-    </body>
+    </h:body>
 </html>

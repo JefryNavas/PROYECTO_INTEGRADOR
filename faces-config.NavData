@@ -2,15 +2,15 @@
 <Scene Scope="Faces Configuration Only" version="2">
     <Scope Scope="Faces Configuration Only">
         <Node id="crearUsuario.xhtml" x="650" y="150" zoom="true"/>
-        <Node id="index.xhtml" x="150" y="150" zoom="true"/>
         <Node id="registrar_usuario.xhtml" x="650" y="450" zoom="true"/>
+        <Node id="index.xhtml" x="150" y="150" zoom="true"/>
         <Node id="licencia.xhtml" x="400" y="150" zoom="true"/>
         <Node id="usuarios_registrados.xhtml" x="400" y="300" zoom="true"/>
         <Node id="iniciar_sesion.xhtml" x="150" y="600" zoom="true"/>
         <Node id="informacion.xhtml" x="650" y="300" zoom="true"/>
-        <Node id="contacto.xhtml" x="400" y="450" zoom="true"/>
         <Node id="Auditoria.xhtml" x="150" y="450" zoom="true"/>
         <Node id="tabla_reportes.xhtml" x="1150" y="150" zoom="true"/>
+        <Node id="contacto.xhtml" x="400" y="450" zoom="true"/>
         <Node id="cambioContrasenia.xhtml" x="900" y="150" zoom="true"/>
         <Node id="menu_administrador.xhtml" x="900" y="300" zoom="true"/>
         <Node id="permisos.xhtml" x="150" y="300" zoom="true"/>
