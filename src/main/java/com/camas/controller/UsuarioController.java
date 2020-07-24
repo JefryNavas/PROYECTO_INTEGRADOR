@@ -10,9 +10,6 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
-import reportes.CONSULTAS;
-import com.camas.model.*;
-import static java.lang.System.out;
 
 @Named
 @ViewScoped
@@ -24,8 +21,6 @@ public class UsuarioController implements Serializable{
     private int perfil;
     private List<Usuario> usuariolist;
     private String accion;
-    CONSULTAS con = new CONSULTAS();
-    CONEXION cone = new CONEXION();
 
     public UsuarioController() {
     }
@@ -35,8 +30,7 @@ public class UsuarioController implements Serializable{
     @PostConstruct
     public void init(){
         usuariolist = usuarioEJB.findAll();
-     
-             usuario = new Usuario(1);
+        usuario = new Usuario(1);
     }
 
     public String getAccion() {
@@ -66,9 +60,6 @@ public class UsuarioController implements Serializable{
     public void setUsuariolist(List<Usuario> usuariolist) {
         this.usuariolist = usuariolist;
     }
-
-
-
 
     
     public int getPerfil() {
@@ -125,7 +116,7 @@ public class UsuarioController implements Serializable{
                FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", us);
                redireccion = "menu_administrador?faces-redirect=true";
                  } else {
-           FacesContext.getCurrentInstance().addMessage(null,new FacesMessage(FacesMessage.SEVERITY_WARN,"","Usuario Incorrecto"));
+           FacesContext.getCurrentInstance().addMessage(null,new FacesMessage(FacesMessage.SEVERITY_WARN,""," Usuario Incorrecto"));
            }
         }catch(Exception e){
              FacesContext.getCurrentInstance().addMessage(null,new FacesMessage(FacesMessage.SEVERITY_FATAL,"","ERROR"));

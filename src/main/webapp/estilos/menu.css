@@ -1,0 +1,24 @@
+@charset "ISO-8859-1";
+
+.vertical-menu {
+  width: 200px;
+  height: 150px;
+  overflow-y: auto;
+}
+
+.vertical-menu a {
+  background-color: #eee;
+  color: black;
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+}
+
+.vertical-menu a:hover {
+  background-color: #75E3BD;
+}
+
+.vertical-menu a.active {
+  background-color: #4CAF50;
+  color: white;
+}

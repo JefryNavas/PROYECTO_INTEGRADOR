@@ -11,30 +11,36 @@
 
             <ui:define name="content">
                 <h:form id="form">
-	<p:panel id="panel" header="Auditoría">
-		<p:dataTable var="list" value="#{UsuarioBean.listaUsuario()}">
+                    <p:panel id="panel" header="Auditoría" style="text-align: center;">
+                        <p:dataTable var="list" value="#{Auditoriabean.listaAuditoria()}" style="text-align: center;"  tableStyle="table-layout: auto;" paginator="true" rows="10">
 			<p:column headerText="ID">
-				<h:outputText value="#{list.id}" />
+                            <h:outputText value="#{list.id}" />
 			</p:column>
-			<p:column headerText="Fecha">
-				<h:outputText value="#{list.fecha}" />
+			<p:column headerText="Tabla">
+                            <h:outputText value="#{list.tabla}" />
 			</p:column>
-			<p:column headerText="Observación">
-				<h:outputText value="#{list.observacion}" />
-			</p:column>
-
-			<p:column headerText="Nombre de Equipo">
-				<h:outputText value="#{list.n_equipo}" />
+			<p:column headerText="Operación">
+                            <h:outputText value="#{list.operacion}" />
 			</p:column>
 
-			<p:column headerText="Usuario">
-				<h:outputText value="#{list.usu}" />
+			<p:column headerText="Valor anterior">
+                            <h:outputText value="#{list.valorA}" />
+			</p:column>
+
+			<p:column headerText="Valor nuevo">
+                            <h:outputText value="#{list.valorN}" />
 			</p:column>
                     
-                         <p:column headerText="Tabla">
-				<h:outputText value="#{list.tabla}" />
+                         <p:column headerText="Fecha">
+                             <h:outputText value="#{list.fecha}" />
 			</p:column>
-		</p:dataTable>
+                        
+                        <p:column headerText="Usuario">
+                            <h:outputText value="#{list.usuario}" />
+			</p:column>
+                
+                    
+                      </p:dataTable>
 		<p:commandButton value="Regresar"  action="menu_administrador?faces-redirect=true"/>
 	</p:panel>
 

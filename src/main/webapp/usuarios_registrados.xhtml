@@ -13,8 +13,8 @@
              <p:growl id="mensaje" showSummary="false" showDetail="true">
                   <p:autoUpdate />
              </p:growl>
-	<p:panel  id="panel" header="Usuarios Registrados">
-            <p:dataTable id="tabla" var="list" value="#{usuarioController.usuariolist}">
+	<p:panel  id="panel" header="Usuarios Registrados" style="text-align: center;">
+            <p:dataTable id="tabla" var="list" value="#{usuarioController.usuariolist}" style="text-align: center;" tableStyle="table-layout: auto;" paginator="true" rows="10">
 			<p:column headerText="ID">
                             <h:outputText value="#{list.id_usuario}" />
 			</p:column>

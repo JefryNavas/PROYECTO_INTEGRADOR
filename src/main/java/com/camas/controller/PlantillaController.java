@@ -12,7 +12,7 @@ import javax.inject.Named;
 public class PlantillaController implements Serializable{
     
     
-    
+
     public void verificarSesion(){
         try{
             FacesContext context = FacesContext.getCurrentInstance();

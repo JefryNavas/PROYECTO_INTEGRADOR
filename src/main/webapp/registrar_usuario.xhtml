@@ -44,7 +44,7 @@
 				<br></br>
 				<p:outputLabel for="contraseña" value="Contraseña:" />
 				<br></br>
-                                <p:inputText id="contraseña" type="password" required="true" value ="#{usuarioController.usuario.contraseña}"/>
+                                <p:password id="contraseña" required="true" value ="#{usuarioController.usuario.contraseña}" feedback="true" promptLabel="Mínino 6 dígitos"/>
                                 <br></br>
                                 <p:commandButton value="Registrar" actionListener="#{usuarioController.registrar()}" icon="ui-icon-disk" update="mensaje" ajax="false"/>
                                 <br/>
