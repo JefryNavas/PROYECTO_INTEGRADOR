@@ -21,9 +21,14 @@
         <div id="top">
             <ui:insert name="top">
                 <h:form>
-                    <div align="right">
+                    
+                    <div align="left">
+                        
                         Bienvenido Usuario: #{usuarioController.mostrarUsuarioLogeado()}
-                        <p:commandButton actionListener="#{plantillaController.cerrarSesion()}" value="Cerrar Sesión" action="/iniciar_sesion?faces-redirect=true"/>
+                         <p:commandButton value="Crear Usuario" action="/crearUsuario?faces-redirect=true"/>
+                         <p:commandButton value="Ver Usuarios" action="/usuarios_registrados?faces-redirect=true"/>
+                         <p:commandButton value="Auditoría" action="/Auditoria?faces-redirect=true"/>
+                         <p:commandButton actionListener="#{plantillaController.cerrarSesion()}" value="Cerrar Sesión" action="/iniciar_sesion?faces-redirect=true"/>
                     </div>    
                                 </h:form>
                  </ui:insert>

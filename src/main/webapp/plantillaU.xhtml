@@ -20,11 +20,13 @@
         <div id="top">
             <ui:insert name="top">
                  <h:form>
-                    <div align="right">
+                     <div align="left">
                         Bienvenido Usuario: #{usuarioController.mostrarUsuarioNombre()} #{usuarioController.mostrarUsuarioApellido()}
-                   
-                         <p:commandButton actionListener="#{plantillaController.cerrarSesion()}" value="Cerrar Sesión" action="/iniciar_sesion?faces-redirect=true"/>
-                
+                        <p:commandButton value="Inicio" action="/index?faces-redirect=true"/>
+                        <p:commandButton value="Información" action="/informacion?faces-redirect=true"/>
+                        <p:commandButton value="Contacto" action="/contacto?faces-redirect=true"/>
+                        <a href="https://github.com/JoelYunga/PROYECTO_INTEGRADOR-56"> <p:commandButton type="button" value="Repositorio" /> </a>
+                        <p:commandButton actionListener="#{plantillaController.cerrarSesion()}" value="Cerrar Sesión" action="/iniciar_sesion?faces-redirect=true"/>
                     </div>
                </h:form>
             </ui:insert>

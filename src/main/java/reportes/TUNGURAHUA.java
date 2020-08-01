@@ -26,8 +26,8 @@ import org.pentaho.reporting.libraries.resourceloader.ResourceManager;
  *
  * @author Jeffry
  */
-@WebServlet("/report")
-public class report extends HttpServlet {
+@WebServlet("/TUNGURAHUA")
+public class TUNGURAHUA extends HttpServlet {
     private static final long serialVersionUID = 1L;
     
     
@@ -37,7 +37,7 @@ public class report extends HttpServlet {
         ClassicEngineBoot.getInstance().start();
     }
     
-     public report() {
+     public TUNGURAHUA() {
         super();
     }
     /**
@@ -68,7 +68,7 @@ public class report extends HttpServlet {
 			long inicio = System.currentTimeMillis();
 			ResourceManager manager = new ResourceManager();
 			manager.registerDefaults();
-			String ruta = "file:" + this.getServletContext().getRealPath("reportes/2.prpt");
+			String ruta = "file:" + this.getServletContext().getRealPath("reportes/TUNGURAHUA.prpt");
 			Resource res = manager.createDirectly(new URL(ruta), MasterReport.class);
 			MasterReport reporte = (MasterReport) res.getResource();
 			response.setContentType("application/pdf");

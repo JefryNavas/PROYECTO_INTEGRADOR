@@ -114,7 +114,7 @@ public class UsuarioController implements Serializable{
                redireccion = "principal?faces-redirect=true";
            } else if(us!=null && us.getPerfil()==2){
                FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", us);
-               redireccion = "menu_administrador?faces-redirect=true";
+               redireccion = "crearUsuario?faces-redirect=true";
                  } else {
            FacesContext.getCurrentInstance().addMessage(null,new FacesMessage(FacesMessage.SEVERITY_WARN,""," Usuario Incorrecto"));
            }

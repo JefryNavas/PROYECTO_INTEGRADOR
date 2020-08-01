@@ -5,7 +5,7 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      >
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 
     
     <h:head>
@@ -69,7 +69,6 @@
                                 <OPTION VALUE="23">CHIMBORAZO</OPTION>
                                 <OPTION VALUE="24">LOS RÍOS</OPTION>
 			</SELECT>
-                
                    </div>
                    <div class="content-select" style="display: none" id="establec">
 			<h2>Establecimiento:</h2>
@@ -97,7 +96,6 @@
                         <div style="display: none" id="vs">
                             <a href="report"> <p:commandButton type="button" class="boton" value="Comparar Años" /> </a>
                         </div>
-                        
                         <br/>
                         <div style="display: none" id="2017">
                             <a href="report"> <p:commandButton type="button" class="boton" value="Reporte 2017" /> </a>
@@ -106,77 +104,77 @@
                             <a href="report"> <p:commandButton type="button" class="boton" value="Reporte 2018" /> </a>
                         </div>
                         <div style="display: none" id="azuay">
-                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte de Azuay" /> </a>
+                            <a href="AZUAY"> <p:commandButton type="button" class="boton" value="Generar reporte de Azuay" /> </a>
                         </div>
                         <div style="display: none" id="zamora">
-                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte de Zamora Chinchipe" /> </a>
+                            <a href="ZAMORA"> <p:commandButton type="button" class="boton" value="Generar reporte de Zamora Chinchipe" /> </a>
                         </div>
                         <div style="display: none" id="galapagos">
-                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte de Galápagos" /> </a>
+                            <a href="GALAPAGOS"> <p:commandButton type="button" class="boton" value="Generar reporte de Galápagos" /> </a>
                         </div>
                         <div style="display: none" id="santaelena">
-                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte de Santa Elena" /> </a>
+                            <a href="SANTAELENA"> <p:commandButton type="button" class="boton" value="Generar reporte de Santa Elena" /> </a>
                         </div>
                         <div style="display: none" id="loja">
-                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte de Loja" /> </a>
+                            <a href="LOJA"> <p:commandButton type="button" class="boton" value="Generar reporte de Loja" /> </a>
                         </div>
                         <div style="display: none" id="manabi">
-                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte de Manabí" /> </a>
+                            <a href="MANABI"> <p:commandButton type="button" class="boton" value="Generar reporte de Manabí" /> </a>
                         </div>
                         <div style="display: none" id="guayas">
-                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte de Guayas" /></a>
+                            <a href="GUAYAS"> <p:commandButton type="button" class="boton" value="Generar reporte de Guayas" /></a>
                         </div>
                         <div style="display: none" id="napo">
-                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte de Napo" /> </a>
+                            <a href="NAPO"> <p:commandButton type="button" class="boton" value="Generar reporte de Napo" /> </a>
                         </div>
                         
                         <div style="display: none" id="esmeraldas">
-                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte de Esmeraldas" /> </a>
+                            <a href="ESMERALDAS"> <p:commandButton type="button" class="boton" value="Generar reporte de Esmeraldas" /> </a>
                         </div>
                         <div style="display: none" id="carchi">
-                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte de Carchi" /> </a>
+                            <a href="CARCHI"> <p:commandButton type="button" class="boton" value="Generar reporte de Carchi" /> </a>
                         </div>
                         <div style="display: none" id="pichincha">
-                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte de Pichincha" /> </a>
+                            <a href="PICHINCHA"> <p:commandButton type="button" class="boton" value="Generar reporte de Pichincha" /> </a>
                         </div>
                         <div style="display: none" id="cotopaxi">
-                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte de Cotopaxi" /> </a>
+                            <a href="COTOPAXI"> <p:commandButton type="button" class="boton" value="Generar reporte de Cotopaxi" /> </a>
                         </div>
                         <div style="display: none" id="imbabura">
-                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte de Inmbabura" /> </a>
+                            <a href="IMBABURA"> <p:commandButton type="button" class="boton" value="Generar reporte de Inmbabura" /> </a>
                         </div>
                         <div style="display: none" id="bolivar">
-                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte de Bolivár" /> </a>
+                            <a href="BOLIVAR"> <p:commandButton type="button" class="boton" value="Generar reporte de Bolivár" /> </a>
                         </div>
                         <div style="display: none" id="santo">
-                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte de Santo Domingo" /> </a>
+                            <a href="SANTODOMINGO"> <p:commandButton type="button" class="boton" value="Generar reporte de Santo Domingo" /> </a>
                         </div>
                         <div style="display: none" id="eloro">
-                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte de El Oro" /> </a>
+                            <a href="ELORO"> <p:commandButton type="button" class="boton" value="Generar reporte de El Oro" /> </a>
                         </div>
                         <div style="display: none" id="sucumbios">
-                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte de Sucumbios" /> </a>
+                            <a href="SUCUMBIOS"> <p:commandButton type="button" class="boton" value="Generar reporte de Sucumbios" /> </a>
                         </div>
                         <div style="display: none" id="tungurahua">
-                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte de Tungurahua" /> </a>
+                            <a href="TUNGURAHUA"> <p:commandButton type="button" class="boton" value="Generar reporte de Tungurahua" /> </a>
                         </div>
                         <div style="display: none" id="cañar">
-                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte de Cañar" /> </a>
+                            <a href="CANAR"> <p:commandButton type="button" class="boton" value="Generar reporte de Cañar" /> </a>
                         </div>
                         <div style="display: none" id="morona">
-                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte de Morona Santiago" /> </a>
+                            <a href="MORONA"> <p:commandButton type="button" class="boton" value="Generar reporte de Morona Santiago" /> </a>
                         </div>
                         <div style="display: none" id="orellana">
-                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte de Orellana" /> </a>
+                            <a href="ORELLANA"> <p:commandButton type="button" class="boton" value="Generar reporte de Orellana" /> </a>
                         </div>
                         <div style="display: none" id="pastaza">
-                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte de Pastaza" /> </a>
+                            <a href="PASTAZA"> <p:commandButton type="button" class="boton" value="Generar reporte de Pastaza" /> </a>
                         </div>
                         <div style="display: none" id="chimborazo">
-                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte de Chimborazo" /> </a>
+                            <a href="CHIMBORAZO"> <p:commandButton type="button" class="boton" value="Generar reporte de Chimborazo" /> </a>
                         </div>
                         <div style="display: none" id="losrios">
-                            <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte de Los Ríos" /> </a>
+                            <a href="LOSRIOS"> <p:commandButton type="button" class="boton" value="Generar reporte de Los Ríos" /> </a>
                         </div>
                         <div style="display: none" id="est1">
                             <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte 1" /> </a>
@@ -214,31 +212,71 @@
                 
                 
                 </p:panel>
-   
+
+                    <p:panel header="REPORTES POR PROVINCIA" style="text-align: center;" id="panelProvincia">
+                        <h:panelGrid columns="2" >
+                         <p:column>
+                             <p:chart type="pie" model="#{beanReportes.torta}"
+                                      style="width:650px;height:650px" id="tortaProvincias"/>
+                             <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte 10" /> </a>
+                        </p:column>
+                        
+                     </h:panelGrid>
+                </p:panel>
+               
+                
+                     <p:panel header="REPORTES POR ESTABLECIMIENTO" style="text-align: center;" id="panelEstablecimiento">
+                     <h:panelGrid columns="2">
+                         <p:column>
+                             <p:chart type="pie" model="#{beanReportes.torta3}"
+                                      style="width:650px;height:650px" id="tortaEstablecimientos"/>
+                             <a href="report"> <p:commandButton type="button" class="boton" value="Generar reporte 10" /> </a>
+                        </p:column>
+                        </h:panelGrid>
+                </p:panel>
+                
+                
+                <p:panel header="REPORTES POR AÑOS" style="text-align: center;" id="panelAnos">
+                     <h:panelGrid columns="2">
+                         
+                     </h:panelGrid>
+                </p:panel>
+                
                 
                 <script type="text/javascript">
                     
             function mostrar() {
 			var cargo = document.getElementById("ejes").value;
 			if (cargo == "1") {
+                                document.getElementById("panelAnos").style.display = "inherit";
+				
 				document.getElementById("anios").style.display = "inherit";
 				document.getElementById("vs").style.display = "inherit";
                                 document.getElementById("geo").style.display = "none";
                                 document.getElementById("establec").style.display = "none";
+				document.getElementById("panelProvincia").style.display = "none";
+				document.getElementById("panelEstablecimiento").style.display = "none";
 				
         }
 			if (cargo == "2") {
+                            document.getElementById("panelProvincia").style.display = "inherit";
+                            document.getElementById("tortaProvincias").style.display = "inherit";
                             document.getElementById("geo").style.display = "inherit";
                             document.getElementById("vs").style.display = "none";
                             document.getElementById("anios").style.display = "none";
                             document.getElementById("establec").style.display = "none";
+                            document.getElementById("panelAnos").style.display = "none";
+                            document.getElementById("panelEstablecimiento").style.display = "none";
 				
 			}
                         if (cargo == "3") {
+                            document.getElementById("panelEstablecimiento").style.display = "inherit";
                             document.getElementById("establec").style.display = "inherit";
                             document.getElementById("vs").style.display = "none";
                             document.getElementById("anios").style.display = "none";
                             document.getElementById("geo").style.display = "none";
+                            document.getElementById("panelAnos").style.display = "none";
+                            document.getElementById("panelProvincia").style.display = "none";
 				
 			}
 		};
