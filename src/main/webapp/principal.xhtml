@@ -213,11 +213,21 @@
                 
                 </p:panel>
 
-                    <p:panel header="REPORTES POR PROVINCIA" style="text-align: center;" id="panelProvincia">
+                    <p:panel header="REPORTES POR UBICACIÓN" style="text-align: center;" id="panelProvincia">
                         <h:panelGrid columns="2" >
                          <p:column>
                              <p:chart type="pie" model="#{beanReportes.torta}"
                                       style="width:650px;height:650px" id="tortaProvincias"/>
+                             
+                        </p:column>
+                            <p:column>
+                                <p:chart type="bar" model="#{beanReportes.barraProvincias}"
+                                      style="width:650px;height:650px" id="barraProvincias"/>
+                             
+                        </p:column>
+                            <p:column>
+                                <p:chart type="bar" model="#{beanReportes.barraArea}"
+                                      style="width:650px;height:650px" id="barraArea"/>
                              
                         </p:column>
                         
@@ -232,13 +242,60 @@
                                       style="width:650px;height:650px" id="tortaEstablecimientos"/>
                              
                         </p:column>
+                         <p:column>
+                             <p:chart type="bar" model="#{beanReportes.barraSector}"
+                                      style="width:650px;height:650px" id="barraSector"/>
+                             
+                        </p:column>
+                         <p:column>
+                             <p:chart type="bar" model="#{beanReportes.barraTipo}"
+                                      style="width:650px;height:650px" id="barraTipo"/>
+                             
+                        </p:column>
+                         <p:column>
+                             <p:chart type="bar" model="#{beanReportes.barraClase}"
+                                      style="width:650px;height:650px" id="barraClase"/>
+                             
+                        </p:column>
+                         
                         </h:panelGrid>
                 </p:panel>
                 
                 
                 <p:panel header="REPORTES POR AÑOS" style="text-align: center;" id="panelAnos">
                      <h:panelGrid columns="2">
-                         
+                         <p:column>
+                             <p:chart type="pie" model="#{beanReportes.torta2}"
+                                      style="width:650px;height:650px" id="barraAnios"/>
+                             
+                        </p:column>
+                         <p:column>
+                             <p:chart type="bar" model="#{beanReportes.barratotal}"
+                                      style="width:650px;height:650px" id="barratotalanios"/>
+                             
+                        </p:column>
+                        
+                         <p:column>
+                             <p:chart type="bar" model="#{beanReportes.barra2017}"
+                                      style="width:650px;height:650px" id="barra2017"/>
+                             
+                        </p:column>
+                         <p:column>
+                             <p:chart type="bar" model="#{beanReportes.barra2018}"
+                                      style="width:650px;height:650px" id="barra2018"/>
+                             
+                        </p:column>
+                         <p:column>
+                             <p:chart type="bar" model="#{beanReportes.barraMESES}"
+                                      style="width:650px;height:650px" id="barraMeses"/>
+                             
+                        </p:column>
+                         <p:column>
+                             <p:chart type="bar" model="#{beanReportes.barraMESES2018}"
+                                      style="width:650px;height:650px" id="barraMeses2018"/>
+                             
+                        </p:column>
+                        
                      </h:panelGrid>
                 </p:panel>
                 

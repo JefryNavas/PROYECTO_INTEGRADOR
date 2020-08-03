@@ -13,6 +13,8 @@ public class Reportes {
     
         private String datos;
         private int contador;
+        private int contador2;
+        private int contador3;
 	
 	
 	public Reportes() {
@@ -39,5 +41,21 @@ public class Reportes {
 	public void setDatos(String datos) {
 		this.datos = datos;
 	}
+
+    public int getContador2() {
+        return contador2;
+    }
+
+    public void setContador2(int contador2) {
+        this.contador2 = contador2;
+    }
+
+    public int getContador3() {
+        return contador3;
+    }
+
+    public void setContador3(int contador3) {
+        this.contador3 = contador3;
+    }
 	
 }
