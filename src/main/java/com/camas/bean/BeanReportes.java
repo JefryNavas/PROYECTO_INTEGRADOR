@@ -91,7 +91,7 @@ public class BeanReportes implements Serializable{
 		torta2.setLegendPosition("e");
 		torta2.setFill(true);
 		torta2.setShowDataLabels(true);
-		torta2.setDiameter(200);
+		torta2.setDiameter(300);
 	}
                 public void graficarEstablecimiento() {
 		DaoReportes dao;
